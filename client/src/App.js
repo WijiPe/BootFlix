@@ -16,7 +16,7 @@ const App = () => {
               <EditUser/>
             </Route>
             <Route exact path="/signup">
-              <SignUp/>
+              <SignUp />
             </Route>
         </Switch>
       </BrowserRouter>
