@@ -2,17 +2,30 @@
 const express = require('express');
 const app = express();
 const cors = require('cors')
+const cookies = require('cookie-parser')
 port = 8000
 
 // CONFIG MONGOOSE
-// require("./config/mongoose.config");
+require("./config/mongoose.config");
 
 // CONFIG EXPRESS
-app.use(cors()) // Having 2 localhost port to communicate
+app.use(cors({
+    credentials: true, 
+    origin: 'http://localhost:3000'
+})) // Having 2 localhost port to communicate
+
+
+app.use(cookies())
 app.use(express.json(), express.urlencoded({ extended: true }))  // POST METHOD
 
 // ROUTES
 // require("./routes/BootFlix.routes")(app)
-WijiWjij
+
 // PORT
 app.listen(8000, () => console.log(`Listening on port: port`));
+
+
+Hi Matt
+
+
+hi 
