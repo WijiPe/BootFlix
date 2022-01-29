@@ -23,9 +23,3 @@ app.use(express.json(), express.urlencoded({ extended: true }))  // POST METHOD
 
 // PORT
 app.listen(8000, () => console.log(`Listening on port: port`));
-
-
-Hi Matt
-
-
-hi 

@@ -28,16 +28,16 @@ const UserSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 //creating the virtual field for confirm password
-UserSchema.virtual('confirm')
-    .get(() => this.confirm)
-    .set(value => this.confirm = value);
+UserSchema.virtual('confirmPassword')
+    .get(() => this._confirmPassword)
+    .set(value => this._confirmPassword = value);
 
 //use the virtual field for confirm password to make sure it matches up with password--> we are adding a validation for the confirm password virtual field
 UserSchema.pre('validate', function (next) {
-    if (this.password !== this.confirm) {
+    if (this.password !== this.confirmPassword) {
         this.invalidate('confirm', 'Password must match confirm password');
     }
-    next();
+    next(); //preform the next step if valid
 });
 
 //before saving the user to the db, we will hash their password using bcrypt
@@ -48,7 +48,7 @@ UserSchema.pre("save", function (next) {
             next();
         })
         .catch(err => {
-            console.log("hashing failed tho! now what! 20 minute rule?", err)
+            console.log("hashing failed!", err)
             next();
         })
 })
