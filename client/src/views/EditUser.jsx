@@ -1,11 +1,11 @@
 import React from 'react'
 
-const LoginForm = () => {
+const User = () => {
     return (
         <div>
-            
+            <p>Edit User</p>
         </div>
     )
 }
 
-export default LoginForm
+export default User
