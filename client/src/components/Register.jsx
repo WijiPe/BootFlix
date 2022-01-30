@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import Login from './Login';
-import { useHistory } from 'react-router-dom';
+import {useHistory} from "react-router-dom";
 
 
 
@@ -34,6 +33,7 @@ const Register = () => {
         axios.post("http://localhost:8000/api/register", registerInfo, {withCredentials:true})
             .then(res=>{
                 console.log("response from registering", res);
+                history.push("/home")
                 if(res.data.errors){
                     setErrors(res.data.errors)
                 }else{
@@ -74,7 +74,6 @@ const Register = () => {
                 <input type="submit" value="Sign Up" className= "btn btn-primary" />
             </form>
         </div>
-        <Login path= "/"></Login>
         
         </>
     );

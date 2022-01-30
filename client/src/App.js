@@ -2,6 +2,8 @@ import './App.css';
 import Home from './views/Home';
 import EditUser from './views/EditUser';
 import SignUp from './views/SignUp';
+import Index from './views/Index';
+import LoginPage from './views/LoginPage';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 const App = () => {
@@ -17,6 +19,12 @@ const App = () => {
             </Route>
             <Route exact path="/signup">
               <SignUp />
+            </Route>
+            <Route exact path="/login">
+              <LoginPage />
+            </Route>
+            <Route exact path="/">
+              <Index />
             </Route>
 
         </Switch>
