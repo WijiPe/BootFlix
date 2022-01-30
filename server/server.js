@@ -19,7 +19,8 @@ app.use(cookies())
 app.use(express.json(), express.urlencoded({ extended: true }))  // POST METHOD
 
 // ROUTES
-// require("./routes/BootFlix.routes")(app)
+require("./routes/bootflix.routes")(app)
+
 
 // PORT
 app.listen(8000, () => console.log(`Listening on port: port`));

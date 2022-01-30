@@ -28,13 +28,13 @@ const UserSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 //creating the virtual field for confirm password
-UserSchema.virtual('confirmPassword')
-    .get(() => this._confirmPassword)
-    .set(value => this._confirmPassword = value);
+UserSchema.virtual('confirm')
+    .get(() => this._confirm)
+    .set(value => this._confirm = value);
 
 //use the virtual field for confirm password to make sure it matches up with password--> we are adding a validation for the confirm password virtual field
 UserSchema.pre('validate', function (next) {
-    if (this.password !== this.confirmPassword) {
+    if (this.password !== this.confirm) {
         this.invalidate('confirm', 'Password must match confirm password');
     }
     next(); //preform the next step if valid

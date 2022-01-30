@@ -14,7 +14,8 @@ class UserController {
                     .json({msg: "success", user: user})
 
             })
-            .catch(err=> res.json(err))
+            .catch(err=> {res.json(err);
+            console.log("ya fucked up kid")})
     }
 
 
