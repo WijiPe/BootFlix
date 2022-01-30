@@ -24,8 +24,9 @@ const NavLinks = () => {
                     <Link to={"/home"}>Kids</Link>
                 </div>
                 <div>
-                    <select type = "text" onChange={(e)=>onChangeHandler(e.target.value)}>
+                    <select type = "text" onChange={(e)=>onChangeHandler(e)}>
                         <option value="">User</option>
+                        <option value="/signup">Sign Up</option>
                         <option value="/edit/user/:id">Edit</option>
                         <option value="">Log Out</option>
                     </select>

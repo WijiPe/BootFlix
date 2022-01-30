@@ -1,5 +1,7 @@
 import './App.css';
 import Home from './views/Home';
+import EditUser from './views/EditUser';
+import SignUp from './views/SignUp';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 const App = () => {
@@ -9,6 +11,12 @@ const App = () => {
         <Switch>
             <Route exact path="/home">
               <Home/>
+            </Route>
+            <Route exact path="/edit/user/:id">
+              <EditUser/>
+            </Route>
+            <Route exact path="/signup">
+              <SignUp />
             </Route>
         </Switch>
       </BrowserRouter>
