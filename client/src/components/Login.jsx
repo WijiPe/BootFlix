@@ -23,7 +23,7 @@ const Login = () => {
             .then(res=>{
                 console.log("LOGGGIN IN RESPONSE", res)
                 if(res.data.msg == "success!"){
-                    history.push("/dashboard")
+                    history.push("/home")
                 }
             })
             .catch(err=>console.log(err))
