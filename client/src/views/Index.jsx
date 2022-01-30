@@ -1,6 +1,6 @@
 import React from 'react';
 import BootFlixLogo from '../components/BootFlixLogo';
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 const Index = () => {
 
