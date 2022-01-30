@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div>
         <NavLinks  />
-        <h1>Welcome, {loggedinuser.username} you made it to the dashboard!</h1>
+        <h1>Welcome, {loggedinuser.username}</h1>
     </div>
   )
 }
