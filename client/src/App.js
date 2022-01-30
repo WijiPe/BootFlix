@@ -2,7 +2,6 @@ import './App.css';
 import Home from './views/Home';
 import EditUser from './views/EditUser';
 import SignUp from './views/SignUp';
-import Register from './components/Register';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 const App = () => {
@@ -19,12 +18,7 @@ const App = () => {
             <Route exact path="/signup">
               <SignUp />
             </Route>
-            <Route exact path="/register">
-              <Register />
-            </Route>
 
-
-            
         </Switch>
       </BrowserRouter>
     </div>
