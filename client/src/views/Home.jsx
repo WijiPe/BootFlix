@@ -17,6 +17,7 @@ const Home = () => {
                 setLoggedInUser(res.data)
             })
             .catch(err => {
+                
                 console.log("errorrrrrr", err)
             })
     }, [])
