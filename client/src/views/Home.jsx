@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from '../components/style.module.css'
 import {Link} from "react-router-dom";
 import Popular from '../components/Popular';
+import Latest from '../components/Latest';
 
 const Home = () => {
 
@@ -25,8 +26,10 @@ const Home = () => {
             <NavLinks />
             <h1>Welcome, {loggedinuser.username}</h1>
 
-            <h3><Link to={`/catagory/popular`}  className={styles.catagoryName}> Popular </Link></h3>
+            <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> Popular </Link></h3>
             <Popular />
+            <h3><Link to={`/catagory/latest`} className={styles.catagoryName}> Latest </Link></h3>
+            <Latest />
         </div>
     )
 }
