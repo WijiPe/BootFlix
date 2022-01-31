@@ -1,4 +1,4 @@
-import './App.css';
+
 import Home from './views/Home';
 import EditUser from './views/EditUser';
 import SignUp from './views/SignUp';

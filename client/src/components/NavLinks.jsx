@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link, useHistory} from "react-router-dom";
 import BootFlixLogo from './BootFlixLogo';
-import styles from './style.module.css'
+import styles from '../style/style.module.css'
 
 const NavLinks = () => {
 

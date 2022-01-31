@@ -13,13 +13,13 @@ const Index = () => {
     }
 
     return (
-        <div className='container d-flex justify-content-center'>
+        <div className=''>
             <BootFlixLogo  />
             <div>
                     <select type = "text" onChange={(e)=>onChangeHandler(e)}>
                         <option value=""></option>
                         <option value="/login">Log In</option>
-                        
+                        <option value="/signup">Sign Up</option>
                     </select>
                 </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from '../components/style.module.css'
+import styles from '../style/style.module.css'
 
 const Popular = () => {
 
