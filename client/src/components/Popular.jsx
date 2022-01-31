@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../style/style.module.css'
+import {Link} from "react-router-dom";
 
 const Popular = () => {
 
@@ -25,8 +26,8 @@ const Popular = () => {
             {
             popular &&
             popular.map((movie, i) => (
-                    <div>
-                        <img key ={i} className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img>
+                    <div key ={i}>
+                        <Link to={`/movie/details/${movie.id}`}><img  className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
                     </div>
                 )
             )}
