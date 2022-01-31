@@ -26,7 +26,7 @@ const Popular = () => {
             popular &&
             popular.map((movie, i) => (
                     <div>
-                        <h4 key ={i}>{movie.title}</h4>
+                        <img key ={i} className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img>
                     </div>
                 )
             )}

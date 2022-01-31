@@ -37,3 +37,11 @@
     font-family:cursive;
     font-size: 30px;
 }
+
+.image{
+    width: 100px;
+    height: 100 px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}

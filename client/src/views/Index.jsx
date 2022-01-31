@@ -18,7 +18,6 @@ const Index = () => {
             <div>
                     <select type = "text" onChange={(e)=>onChangeHandler(e)}>
                         <option value=""></option>
-                        <option value="/signup">Sign Up</option>
                         <option value="/login">Log In</option>
                         
                     </select>
