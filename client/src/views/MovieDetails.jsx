@@ -25,6 +25,7 @@ const MovieDetails = () => {
             <h2>{movie.original_title}</h2>
             <h3>Movie Details</h3>
             <p>{movie.overview}</p>
+            <iframe width="720" height="515" src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}></iframe>
         </div>
     )
 }
