@@ -5,7 +5,7 @@ import axios from 'axios';
 const Home = () => {
 
       const [loggedinuser, setLoggedInUser] = useState({})
-      const [popular, setPopular] = useState([])
+      const [popular, setPopular] = useState({})
 
 
     useEffect(()=>{
@@ -23,7 +23,7 @@ const Home = () => {
       axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=1")
           .then(res=>{
               console.log(res.data.results)
-              setPopular(res.data.results[0])
+              setPopular(res.data.results)
           })
           .catch(err=> {
               console.log("errorrrrrr",err)
@@ -34,8 +34,8 @@ const Home = () => {
     <div>
         <NavLinks  />
         <h1>Welcome, {loggedinuser.username}</h1>
-        <img src={popular.poster_path} alt="Poster" />
-        <p>{popular.title}</p>
+
+        
     </div>
   )
 }
