@@ -11,7 +11,6 @@ const CatagoryShow = () => {
     //     setCatagory(newCatagory)
     // }
 
-    const [popular, setPopular] = useState("")
 
     return (
         <div>

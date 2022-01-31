@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../style/style.module.css'
-import {Link} from "react-router-dom";
 
-const Popular = () => {
+const Action = () => {
 
-    const [popular, setPopular] = useState([])
+    const [action, setAction] = useState([])
 
     useEffect(() => {
         axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=1")
@@ -13,8 +12,8 @@ const Popular = () => {
                 const tempArray = []
                 console.log(res.data.results)
                 res.data.results.map((movie, i) => tempArray.push(movie))
-                setPopular(tempArray)
-                
+                setAction(tempArray)
+
             })
             .catch(err => {
                 console.log("errorrrrrr", err)
@@ -24,15 +23,17 @@ const Popular = () => {
     return (
         <div className={styles.catagoryGroup}>
             {
-            popular &&
-            popular.map((movie, i) => (
-                    <div key ={i}>
-                        <Link to={`/movie/details/${movie.id}`}><img  className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
+            action && 
+            action.map((movie, i) => (
+                
+                    <div key ={i} >
+                        <img className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img>
                     </div>
+                    
                 )
             )}
         </div>
     )
 }
 
-export default Popular
+export default Action

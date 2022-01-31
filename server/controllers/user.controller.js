@@ -47,6 +47,16 @@ class UserController {
             .catch(err=> res.json(err))
 
     }
+    getAllUsers = (req, res) => {
+        User.find()
+            .then(users => res.json(users))
+            .catch(err => res.json(err))
+    }
+    updateUser = (req, res) => {
+            User.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+                .then(updatedUser => res.json(updatedUser))
+                .catch(err => res.json(err))
+        }
 }
 
 
@@ -81,11 +91,7 @@ module.exports = new UserController();
 //         .catch(err=>res.json(err))
 // }
 
-// module.exports.getAllUsers = (req, res) => {
-//     User.find()
-//     .then(users => res.json(users))
-//     .catch(err => res.json(err))
-// }
+
 
 // module.exports.getUser = (req, res) => {
 //     User.findOne({_id: req.params.id})

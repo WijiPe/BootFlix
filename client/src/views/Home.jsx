@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from '../style/style.module.css'
 import {Link} from "react-router-dom";
 import Popular from '../components/Popular';
+import Action from '../components/Action';
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
                 setLoggedInUser(res.data)
             })
             .catch(err => {
+                
                 console.log("errorrrrrr", err)
             })
     }, [])
@@ -25,8 +27,10 @@ const Home = () => {
             <NavLinks />
             <h1>Welcome, {loggedinuser.username}</h1>
 
-            <h3><Link to={`/catagory/popular`}  className={styles.catagoryName}> Popular </Link></h3>
+            <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> Popular </Link></h3>
             <Popular />
+            <h3><Link to={`/catagory/latest`} className={styles.catagoryName}> Latest </Link></h3>
+            <Action />
         </div>
     )
 }

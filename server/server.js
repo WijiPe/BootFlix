@@ -23,4 +23,4 @@ require("./routes/bootflix.routes")(app)
 
 
 // PORT
-app.listen(8000, () => console.log(`Listening on port: port`));
+app.listen(8000, () => console.log(`Listening on port: ${port}`));
