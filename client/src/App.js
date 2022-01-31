@@ -4,6 +4,7 @@ import EditUser from './views/EditUser';
 import SignUp from './views/SignUp';
 import Index from './views/Index';
 import LoginPage from './views/LoginPage';
+import CatagoryShow from './views/CatagoryShow';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 const App = () => {
@@ -23,9 +24,13 @@ const App = () => {
             <Route exact path="/login">
               <LoginPage />
             </Route>
+            <Route exact path="/catagory/:catagory">
+              <CatagoryShow />
+            </Route>
             <Route exact path="/">
               <Index />
             </Route>
+
 
         </Switch>
       </BrowserRouter>

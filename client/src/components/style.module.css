@@ -22,3 +22,18 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.catagoryGroup{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.catagoryName{
+    color: rgb(255, 94, 0);
+    font-family:cursive;
+    font-size: 30px;
+}
