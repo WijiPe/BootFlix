@@ -1,9 +1,8 @@
 .logo{
-    color: rgba(229, 8, 21);
+    color: rgb(255, 94, 0);
     font-family:cursive;
-    font-size: 50px;
+    font-size: 40px;
     font-weight:bolder;
-    margin: 20px;
 }
 
 .nav{
@@ -34,7 +33,7 @@
 }
 
 .catagoryName{
-    color: white;
+    color: rgb(255, 94, 0);
     font-family:cursive;
     font-size: 30px;
 }

@@ -5,6 +5,7 @@ import styles from '../style/style.module.css'
 import {Link} from "react-router-dom";
 import Popular from '../components/Popular';
 import Action from '../components/Action';
+import '../style/home.css'
 
 const Home = () => {
 
@@ -23,7 +24,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div>
+        <div className='body'>
             <NavLinks />
             <h1>Welcome, {loggedinuser.username}</h1>
 
