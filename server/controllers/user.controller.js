@@ -47,6 +47,10 @@ class UserController {
             .catch(err=> res.json(err))
 
     }
+    logout(req, res)  {
+        res.clearCookie('usertoken');
+        res.sendStatus(200);
+    }
     getAllUsers = (req, res) => {
         User.find()
             .then(users => res.json(users))
