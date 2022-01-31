@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './App.css';
 import BootFlixLogo from './BootFlixLogo';
 
+
 const Login = () => {
     const [loginInfo, setLoginInfo] = useState({ 
         email:"",
@@ -39,6 +40,7 @@ const Login = () => {
 
 
 
+
     return (
 
 
@@ -50,7 +52,9 @@ const Login = () => {
                         <BootFlixLogo />
                             <input onChange = {loginChangeHandler} type="text" name="email" placeholder="Username" /> 
                             <input onChange = {loginChangeHandler} type="password" name="password" placeholder="Password"/>
-                            <a class="forgot text-muted" href="#">Forgot password?</a> 
+                            <a  class="forgot text-muted" href="#">Forgot password?</a> 
+                            
+                                
                             <input onChange = {loginChangeHandler} type="submit" name="" value="Login" href="#"/> 
                             <input onChange = {loginChangeHandler} onClick={register} type="submit" name="" value="Register" href="#"/>
                             <div className="col-md">

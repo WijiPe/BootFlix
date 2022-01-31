@@ -39,18 +39,14 @@ const Register = () => {
                 if(res.data.errors){
                     setErrors(res.data.errors)
                 }else{
-                    console.log("success!")
+                    console.log('success!')
+                    history.push("/home")
                 }
             })
-            .catch(err=> console.log("hi"))
+            .catch(err=> console.log("hi")) // confused on the hi
 
     }
 
-    const signup = (e) =>{ 
-        e.preventDefault();
-        let path="/login"; 
-        history.push(path);
-      }
 
 
 
@@ -85,7 +81,7 @@ const Register = () => {
                                 {errors.confirm? <p className="danger">{errors.confirm.message}</p>: ""}
 
                             </div>
-                            <input type="submit" value="Sign Up" onClick={signup}  />
+                            <input type="submit" value="Sign Up"  />
                         </form>
                     </div>
                 </div>
