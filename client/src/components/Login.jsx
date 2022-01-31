@@ -25,35 +25,21 @@ const Login = () => {
             .then(res=>{
                 console.log("LOGGGIN IN RESPONSE", res)
                 if(res.data.msg == "success!"){
-                    history.push("/dashboard")
+                    history.push("/home")
                 }
             })
             .catch(err=>console.log(err))
     }
+    
+    const register = (e) =>{ 
+        e.preventDefault();
+        let path="/signup"; 
+        history.push(path);
+      }
+
 
 
     return (
-//         <div className="container">
-//             <h2>Login below</h2>
-//         <form onSubmit= {login}>
-//             <div className="form-group">
-//                 <label>Email</label>
-//                 <input onChange = {loginChangeHandler} type="text" className="form-control" name= 'email' />
-//                 {/* {errors.email? <p className="text-danger">{errors.email.message}</p>: ""} */}
-
-//             </div>
-//             <div className="form-group">
-//                 <label>Password</label>
-//                 <input onChange = {loginChangeHandler} type="password" className="form-control" name= 'password' />
-//                 {/* {errors.password? <p className="text-danger">{errors.password.message}</p>: ""} */}
-
-//             </div>
-            
-//             <input type="submit" value="Login" className= "btn btn-primary" />
-//         </form>
-//     </div>
-//     );
-// };
 
 
         <div className="container">
@@ -62,11 +48,11 @@ const Login = () => {
                     <div className="card">
                         <form onSubmit = {login} class="box opacity">
                         <BootFlixLogo />
-                            <input onChange = {loginChangeHandler} type="text" name="" placeholder="Username" /> 
-                            <input onChange = {loginChangeHandler} type="password" name="" placeholder="Password"/>
+                            <input onChange = {loginChangeHandler} type="text" name="email" placeholder="Username" /> 
+                            <input onChange = {loginChangeHandler} type="password" name="password" placeholder="Password"/>
                             <a class="forgot text-muted" href="#">Forgot password?</a> 
                             <input onChange = {loginChangeHandler} type="submit" name="" value="Login" href="#"/> 
-                            <input onChange = {loginChangeHandler} type="submit" name="" value="Register" href="#"/>
+                            <input onChange = {loginChangeHandler} onClick={register} type="submit" name="" value="Register" href="#"/>
                             <div className="col-md">
                                 <ul className="social-network social-circle">
                                     <li><a href="#" className="icoFacebook" title="Facebook"><i className="fab fa-facebook-f"></i></a></li>
