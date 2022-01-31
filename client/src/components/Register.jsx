@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import Login from './Login';
 import { useHistory } from 'react-router-dom';
-import './App.css';
+import '../style/loginreg.css'
 import BootFlixLogo from './BootFlixLogo';
 
 
@@ -56,7 +56,7 @@ const Register = () => {
             <div className="row">
                 <div className="col-md-12">
                     <div className="card" >
-                        <form onSubmit= {register} class="box opacity">
+                        <form onSubmit= {register} className="box opacity">
                         <BootFlixLogo />
                             <div className="label">
                                 <label>User Name</label>
