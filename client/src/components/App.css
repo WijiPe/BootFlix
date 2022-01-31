@@ -8,9 +8,11 @@ body {
 .logo{
     color: rgb(255, 94, 0);
     font-family:cursive;
-    font-size: 390px;
+    font-size: 20px;
     font-weight:bolder;
 }
+
+
 .card {
     margin-bottom: 20px;
     border: none
@@ -153,4 +155,13 @@ a.socialIcon:hover,
     color: #fff;
     transition: all 0.8s;
     transition: all 0.8s
+}
+
+.label {
+    color: white;
+}
+
+.danger {
+    color: red;
+    
 }
