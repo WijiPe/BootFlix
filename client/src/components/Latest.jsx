@@ -13,7 +13,7 @@ const Latest = () => {
                 console.log(res.data.results)
                 res.data.results.map((movie, i) => tempArray.push(movie))
                 setLatest(tempArray)
-                
+
             })
             .catch(err => {
                 console.log("errorrrrrr", err)
