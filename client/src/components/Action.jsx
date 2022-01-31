@@ -4,7 +4,7 @@ import styles from '../style/style.module.css'
 
 const Action = () => {
 
-    const [latest, setLatest] = useState([])
+    const [action, setAction] = useState([])
 
     useEffect(() => {
         axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=1")
@@ -12,7 +12,7 @@ const Action = () => {
                 const tempArray = []
                 console.log(res.data.results)
                 res.data.results.map((movie, i) => tempArray.push(movie))
-                setLatest(tempArray)
+                setAction(tempArray)
 
             })
             .catch(err => {
@@ -23,11 +23,11 @@ const Action = () => {
     return (
         <div className={styles.catagoryGroup}>
             {
-            latest && 
-            latest.map((movie, i) => (
+            action && 
+            action.map((movie, i) => (
                 
-                    <div>
-                        <img key ={i} className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img>
+                    <div key ={i} >
+                        <img className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img>
                     </div>
                     
                 )
