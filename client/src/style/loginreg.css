@@ -62,7 +62,7 @@ opacity: .9;
     width: 250px;
     outline: none;
     color: white;
-    border-radius: 24px;
+    border-radius: 12px;
     transition: 0.25s
 }
 .signin {
@@ -114,6 +114,7 @@ font-weight: 900;
 
 .label {
     color: white;
+
 }
 
 .danger {

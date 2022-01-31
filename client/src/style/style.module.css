@@ -1,7 +1,7 @@
 .logo{
     color: rgba(229, 8, 21);
     font-family:cursive;
-    font-size: 40px;
+    font-size: 50px;
     font-weight:bolder;
     margin: 20px;
 }
@@ -34,7 +34,7 @@
 }
 
 .catagoryName{
-    color: rgb(255, 94, 0);
+    color: white;
     font-family:cursive;
     font-size: 30px;
 }
