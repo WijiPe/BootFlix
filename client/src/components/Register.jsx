@@ -51,45 +51,36 @@ const Register = () => {
 
 
     return (
-        <>
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="card" >
+
+                    <div className="container" >
                         <form onSubmit= {register} className="box opacity">
                         <BootFlixLogo />
                             <div className="label">
                                 <label>User Name</label>
-                                <input onChange = {regChangeHandler} type="text" className="form-control" name= 'username' placeholder="Username" />
+                                <input onChange = {regChangeHandler} type="text" name= 'username' placeholder="Username" />
                                 {errors.username? <p className="danger">{errors.username.message}</p>: ""}
                             </div>
                             <div className="label">
                                 <label>Email</label>
-                                <input onChange = {regChangeHandler} type="text" className="form-control" name= 'email' placeholder="Email" />
+                                <input onChange = {regChangeHandler} type="text" name= 'email' placeholder="Email" />
                                 {errors.email? <p className="danger">{errors.email.message}</p>: ""}
 
                             </div>
                             <div className='label'>
                                 <label >Password</label>
-                                <input onChange = {regChangeHandler} type="password" className="form-control" name= 'password' placeholder="Password" />
+                                <input onChange = {regChangeHandler} type="password" name= 'password' placeholder="Password" />
                                 {errors.password? <p className="danger">{errors.password.message}</p>: ""}
 
                             </div>
                             <div className="label">
                                 <label>Confirm Password</label>
-                                <input onChange = {regChangeHandler} type="password" className="form-control" name= 'confirm' placeholder="Confirm Password" />
+                                <input onChange = {regChangeHandler} type="password" name= 'confirm' placeholder="Confirm Password" />
                                 {errors.confirm? <p className="danger">{errors.confirm.message}</p>: ""}
 
                             </div>
                             <input type="submit" value="Sign Up"  />
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        
-        </>
     );
 };
 
