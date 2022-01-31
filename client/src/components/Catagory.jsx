@@ -15,8 +15,8 @@ const Catagory = (props) => {
             {
                 Catagories.map((c, i)=>{ 
                     return (
-                        <div>
-                        <Link key={i} to={`/catagory/{c}`} onClick={()=>findCatagory(c)}>   {c}  </Link>
+                        <div key={i} >
+                        <Link  to={`/catagory/{c}`} onClick={()=>findCatagory(c)}>   {c}  </Link>
                         </div>
                     )
                 })

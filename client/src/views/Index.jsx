@@ -13,7 +13,7 @@ const Index = () => {
     }
 
     return (
-        <div>
+        <div className='container d-flex justify-content-center'>
             <BootFlixLogo  />
             <div>
                     <select type = "text" onChange={(e)=>onChangeHandler(e)}>
