@@ -37,7 +37,7 @@ const MovieDetails = () => {
             {/* <iframe width="720" height="515" src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}></iframe> */}
             <iframe width="720" height="515" className='column left' src={`https://www.youtube.com/embed/${movieV.key}`}></iframe>
                 <h2 className='title'>{movie.original_title}</h2>
-            <h3 className='coulmn right'>Movie Details</h3>
+                <h3 className='coulmn right'>Movie Details</h3>
                 <p className='coulmn right'>{movie.overview}</p>
                 <h3 className='coulmn right'>Movie Popularity Score:</h3>
                 <p className='coulmn right'>{movie.popularity}</p>

@@ -5,6 +5,7 @@ import styles from '../style/style.module.css'
 import {Link} from "react-router-dom";
 import Popular from '../components/Popular';
 import Action from '../components/Action';
+import Horror from '../components/Horror';
 import '../style/home.css'
 
 const Home = () => {
@@ -32,6 +33,8 @@ const Home = () => {
             <Popular />
             <h3><Link to={`/catagory/action`} className={styles.catagoryName}> Action </Link></h3>
             <Action />
+            <h3><Link to={`/catagory/horror`} className={styles.catagoryName}> Horror </Link></h3>
+            <Horror  />
         </div>
     )
 }
