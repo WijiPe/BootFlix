@@ -39,6 +39,14 @@ const MovieDetails = () => {
                 <h2 className='title'>{movie.original_title}</h2>
             <h3 className='coulmn right'>Movie Details</h3>
                 <p className='coulmn right'>{movie.overview}</p>
+                <h3 className='coulmn right'>Movie Popularity Score:</h3>
+                <p className='coulmn right'>{movie.popularity}</p>
+                <h3 className='coulmn right'>Movie Release Date:</h3>
+                <p className='coulmn right'>{movie.release_date}</p>
+                <h3 className='coulmn right'>Vote Average:</h3>
+                <p className='coulmn right'>{movie.vote_average}/10</p>
+
+
         </div>
     )
 }
