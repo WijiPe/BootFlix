@@ -16,8 +16,8 @@ const Index = () => {
         <div className=''>
             <BootFlixLogo  />
             <div>
-                    <select type = "text" onChange={(e)=>onChangeHandler(e)}>
-                        <option value=""></option>
+                    <select onChange={(e)=>onChangeHandler(e)}>
+                        <option type="hidden" value=""></option>
                         <option value="/login">Log In</option>
                         <option value="/signup">Sign Up</option>
                     </select>

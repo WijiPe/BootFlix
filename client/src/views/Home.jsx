@@ -2,13 +2,14 @@ import NavLinks from '../components/NavLinks'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../style/style.module.css'
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import Popular from '../components/Popular';
 import Action from '../components/Action';
 import '../style/home.css'
 
-const Home = () => {
 
+const Home = () => {
+    const history = useHistory()
     const [loggedinuser, setLoggedInUser] = useState({})
 
     useEffect(() => {
@@ -18,7 +19,7 @@ const Home = () => {
                 setLoggedInUser(res.data)
             })
             .catch(err => {
-                
+                history.push('/')
                 console.log("errorrrrrr", err)
             })
     }, [])
