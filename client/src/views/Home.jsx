@@ -30,7 +30,7 @@ const Home = () => {
 
             <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> Popular </Link></h3>
             <Popular />
-            <h3><Link to={`/catagory/latest`} className={styles.catagoryName}> Latest </Link></h3>
+            <h3><Link to={`/catagory/action`} className={styles.catagoryName}> Action </Link></h3>
             <Action />
         </div>
     )
