@@ -31,9 +31,10 @@ const NavLinks = () => {
                 <div className={styles.navLink}>
                     <Link to={"/home"}>Home</Link>
                     <Link to={"/home"}>Movies</Link>
-                    <Link to={"/home"}>Popular</Link>
+                    <Link to={"/catagory/popular"}>Popular</Link>
                     <Link to={"/home"}>My List</Link>
                     <Link to={"/home"}>Kids</Link>
+                    
                 </div>
                 <div>
                     <select type = "text" onChange={(e)=>onChangeHandler(e)}>
