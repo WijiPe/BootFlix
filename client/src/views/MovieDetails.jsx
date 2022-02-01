@@ -18,7 +18,7 @@ const MovieDetails = () => {
             .catch(err => {
                 console.log("errorrrrrr", err)
             })
-    }, [])
+    }, [id])
 
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US`)
@@ -28,7 +28,7 @@ const MovieDetails = () => {
             .catch(err => {
                 console.log("errorrrrrr", err)
             })
-    }, [])
+    }, [id])
 
 
     return (

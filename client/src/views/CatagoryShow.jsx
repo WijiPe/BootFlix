@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import NavLinks from '../components/NavLinks'
 import Popular from '../components/Popular'
 // import Catagory from '../components/Catagory'
