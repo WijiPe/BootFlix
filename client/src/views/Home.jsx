@@ -27,7 +27,7 @@ const Home = () => {
 
     return (
         <div className='body'>
-            <NavLinks />
+            <NavLinks id={loggedinuser._id}/>
             <h1>Welcome, {loggedinuser.username}</h1>
 
             <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> Popular </Link></h3>
