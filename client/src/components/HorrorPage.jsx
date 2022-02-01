@@ -3,12 +3,12 @@ import axios from 'axios';
 import styles from '../style/style.module.css'
 import {Link} from "react-router-dom";
 
-const Horror = () => {
-
+const HorrorPage = () => {
     const [horror, setHorror] = useState([])
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
-        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=5")
+        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page="+page)
             .then(res => {
                 const tempArray = []
                 res.data.results.map((movie, i) => {
@@ -22,10 +22,24 @@ const Horror = () => {
             .catch(err => {
                 console.log("errorrrrrr", err)
             })
-    }, [])
+    })
 
     return (
-        <div className={styles.catagoryGroup}>
+    
+        <div>
+            <button onClick={e=>setPage(1)}>1</button>
+            <button onClick={e=>setPage(2)}>2</button>
+            <button onClick={e=>setPage(3)}>3</button>
+            <button onClick={e=>setPage(4)}>4</button>
+            <button onClick={e=>setPage(5)}>5</button>
+            <button onClick={e=>setPage(6)}>6</button>
+            <button onClick={e=>setPage(7)}>7</button>
+            <button onClick={e=>setPage(8)}>8</button>
+            <button onClick={e=>setPage(9)}>9</button>
+            <button onClick={e=>setPage(10)}>10</button>
+
+
+            <div>
             {
             horror && 
             horror.map((movie, i) => (
@@ -36,9 +50,9 @@ const Horror = () => {
                     
                 )
             )}
+            </div>
         </div>
     )
 }
 
-export default Horror
-
+export default HorrorPage

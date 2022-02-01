@@ -1,27 +1,25 @@
 import React from 'react'
 import NavLinks from '../components/NavLinks'
-import Popular from '../components/Popular'
-import Action from '../components/Action';
+import ActionPage from '../components/ActionPage';
+import HorrorPage from '../components/HorrorPage';
 import {useParams} from "react-router-dom";
-// import Catagory from '../components/Catagory'
+import PopularPage from '../components/PopularPage';
+
 
 const CatagoryShow = () => {
 
-    // const [catagory, setCatagory] = useState("")
-    const {catagory} = useParams()
 
-    // const findCatagory =(newCatagory) =>{
-    //     setCatagory(newCatagory)
-    // }
+    const {catagory} = useParams()
 
 
     return (
         <div>
             <NavLinks />
-            {catagory === "popular" && <Popular />}
-            {catagory === "action" && <Action />}
+            {catagory === "popular" && <PopularPage />}
+            {catagory === "action" && <ActionPage />}
+            {catagory === "horror" && <HorrorPage />}
 
-            {/* <h3><Catagory findCatagory={findCatagory} /></h3> */}
+
         </div>
     )
 }
