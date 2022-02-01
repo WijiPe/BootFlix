@@ -32,11 +32,11 @@ const NavLinks = (props) => {
             <div className={styles.nav}>
                 <BootFlixLogo />
                 <div className={styles.navLink}>
-                    <Link to={"/home"}>Home</Link>
-                    <Link to={"/home"}>Movies</Link>
-                    <Link to={"/catagory/popular"}>Popular</Link>
-                    <Link to={"/home"}>My List</Link>
-                    <Link to={"/home"}>Kids</Link>
+                    <Link to={"/home"}><i className='material-icons'>home</i></Link>
+                    <Link to={"/home"}><i className='material-icons'>movie</i></Link>
+                    <Link to={"/catagory/popular"}><i className='material-icons'>star_rate</i></Link>
+                    <Link to={"/home"}><i className='material-icons'>list</i></Link>
+                    <Link to={"/home"}><i className='material-icons'>child_care</i></Link>
                     
                 </div>
                 <div>

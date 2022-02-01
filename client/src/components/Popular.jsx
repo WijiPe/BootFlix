@@ -35,4 +35,9 @@ const Popular = () => {
     )
 }
 
-export default Popular
+export default Popular;
+
+
+
+
+
