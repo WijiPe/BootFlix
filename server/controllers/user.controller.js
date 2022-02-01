@@ -5,6 +5,7 @@ const {secret} = require("../config/jwt");
 
 
 class UserController {
+    
     register(req, res){
         const user = new User(req.body);
         user.save()
@@ -47,6 +48,7 @@ class UserController {
             .catch(err=> res.json(err))
 
     }
+
     logout(req, res)  {
         res.clearCookie('usertoken');
         res.sendStatus(200);
@@ -56,11 +58,25 @@ class UserController {
             .then(users => res.json(users))
             .catch(err => res.json(err))
     }
+
     updateUser = (req, res) => {
-            User.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
-                .then(updatedUser => res.json(updatedUser))
-                .catch(err => res.json(err))
-        }
+        User.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+        .then(updatedUser => res.json(updatedUser))
+        .catch(err => res.json(err))
+    }
+
+    deleteUser = (req, res) => {
+        User.deleteOne({_id: req.params.id})
+        .then(deleteConfrim => res.json(deleteConfrim))
+        .catch(err => response.json(err))
+    }
+
+    getUser = (req, res) => {
+        User.findOne({_id: req.params.id})
+            .then(user => res.json(user))
+            .catch(err => res.json(err))
+    }
+    removeFavorite
 }
 
 
@@ -97,20 +113,9 @@ module.exports = new UserController();
 
 
 
-// module.exports.getUser = (req, res) => {
-//     User.findOne({_id: req.params.id})
-//         .then(user => res.json(user))
-//         .catch(err => res.json(err))
-// }
 
 // module.exports.updateUser = (req, res) => {
 //     User.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
 //     .then(updatedUser => res.json(updatedUser))
 //     .catch(err => res.json(err))
-// }
-
-// module.exports.deleteUser = (req, res) => {
-//     User.deleteOne({_id: req.params.id})
-//         .then(deleteConfrim => res.json(deleteConfrim))
-//         .catch(err => response.json(err))
 // }
