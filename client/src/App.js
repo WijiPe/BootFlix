@@ -17,7 +17,7 @@ const App = () => {
               <Home/>
             </Route>
             <Route exact path="/edit/user/:id">
-              {/* <EditUser /> */}
+              <EditUser />
             </Route>
             <Route exact path="/signup">
               <SignUp />

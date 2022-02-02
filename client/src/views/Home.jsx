@@ -7,6 +7,7 @@ import Action from '../components/Action';
 import Horror from '../components/Horror';
 import NavBar from '../components/NavBar';
 import Comedy from '../components/Comedy';
+import Favorite from '../components/Favorite';
 import '../style/home.css'
 
 const Home = () => {
@@ -40,6 +41,9 @@ const Home = () => {
             <Horror  />
             <h3><Link to={`/catagory/comedy`} className={styles.catagoryName}> Comedy </Link></h3>
             <Comedy  />
+            <h3><Link to={`/catagory/favorite`} className={styles.catagoryName}> Comedy </Link></h3>
+            <Favorite favorites={loggedinuser.favorites} />
+
         </div>
     )
 }
