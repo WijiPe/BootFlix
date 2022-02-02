@@ -29,10 +29,9 @@ const Favorite = (props) => {
 
     return (
         <div>
-            {/* {
+            {
                 favorites &&
                 favorites.map((fav, i) => {
-                    getMovieInfo(fav)
                     return(
                     <div key = {i}>
                     <Link to={`/movie/details/${movie.id}`}><img className='image' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="Movie Poster" ></img></Link>
@@ -40,7 +39,7 @@ const Favorite = (props) => {
                     )
             })
 
-            } */}
+            }
         </div >
     )
 }
