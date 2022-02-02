@@ -144,7 +144,7 @@ const NavBar = (props) => {
                         >
                             
                                 <MenuItem onClick={handleCloseUserMenu}>
-                                    <Button>Edit Profile</Button>
+                                    <Button onClick={history.push(`/edit/user/${props.id}`)}>Edit Profile</Button>
                                 </MenuItem>
                                 <MenuItem onClick={handleCloseUserMenu}>
                                     <Button>Favorites</Button>
