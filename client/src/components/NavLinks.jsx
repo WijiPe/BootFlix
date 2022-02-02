@@ -28,28 +28,30 @@ const NavLinks = (props) => {
     }
 
     return (
-        <div>
-            <div className={styles.nav}>
-                <BootFlixLogo />
-                <div className={styles.navLink}>
-                    <Link to={"/home"}><i className='material-icons'>home</i></Link>
-                    <Link to={"/home"}><i className='material-icons'>movie</i></Link>
-                    <Link to={"/catagory/popular"}><i className='material-icons'>star_rate</i></Link>
-                    <Link to={"/home"}><i className='material-icons'>list</i></Link>
-                    <Link to={"/home"}><i className='material-icons'>child_care</i></Link>
-                    
-                </div>
-                <div>
-                    <select type = "text" onChange={(e)=>onChangeHandler(e)}>
-                        <option type= "hidden" value="">User</option>
-                        <option value={"/edit/user/" + props.id}>Edit</option>
-                        <option value="logout">Log Out</option>
-                    </select>
-                </div>
-            </div>
-        </div>
+        <div></div>
     )
 }
 
 export default NavLinks
 
+
+        // <div>
+        //     <div className={styles.nav}>
+        //         <BootFlixLogo />
+        //         <div className={styles.navLink}>
+        //             <Link to={"/home"}><i className='material-icons'>home</i></Link>
+        //             <Link to={"/home"}><i className='material-icons'>movie</i></Link>
+        //             <Link to={"/catagory/popular"}><i className='material-icons'>star_rate</i></Link>
+        //             <Link to={"/home"}><i className='material-icons'>list</i></Link>
+        //             <Link to={"/home"}><i className='material-icons'>child_care</i></Link>
+                    
+        //         </div>
+        //         <div>
+        //             <select type = "text" onChange={(e)=>onChangeHandler(e)}>
+        //                 <option type= "hidden" value="">User</option>
+        //                 <option value={"/edit/user/" + props.id}>Edit</option>
+        //                 <option value="logout">Log Out</option>
+        //             </select>
+        //         </div>
+        //     </div>
+        // </div>
