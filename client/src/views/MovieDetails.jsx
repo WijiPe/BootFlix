@@ -1,14 +1,30 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import {useParams} from "react-router-dom";
-import NavLinks from '../components/NavLinks';
+import {useParams, useHistory} from "react-router-dom";
+import NavBar from '../components/NavBar';
 import '../style/moviedetails.css'
 
 const MovieDetails = () => {
 
     const [movie, setMovie] = useState({})
     const [movieV, setMovieV] = useState([])
+    const [loggedinuser, setLoggedInUser] = useState({})
     const {id} = useParams()
+    const history = useHistory()
+
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+            .then(res => {
+                console.log("logged in user info", res)
+                setLoggedInUser(res.data)
+            })
+            .catch(err => {
+                history.push('/')
+                console.log("errorrrrrr", err)
+            })
+    }, [])
+
 
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US`)
@@ -33,7 +49,7 @@ const MovieDetails = () => {
 
     return (
         <div className='row'>
-            <NavLinks  />
+            <NavBar  />
             {/* <iframe width="720" height="515" src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}></iframe> */}
             <iframe width="720" height="515" className='column left' src={`https://www.youtube.com/embed/${movieV.key}`}></iframe>
                 <h2 className='title'>{movie.original_title}</h2>

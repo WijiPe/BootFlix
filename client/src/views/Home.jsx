@@ -1,4 +1,3 @@
-import NavLinks from '../components/NavLinks'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../style/style.module.css'
@@ -6,14 +5,13 @@ import {Link, useHistory} from "react-router-dom";
 import Popular from '../components/Popular';
 import Action from '../components/Action';
 import Horror from '../components/Horror';
-import '../style/home.css'
 import NavBar from '../components/NavBar';
-
-
+import '../style/home.css'
 
 const Home = () => {
+
     const history = useHistory()
-    const [loggedinuser, setLoggedInUser] = useState({})
+    const [loggedinuser, setLoggedInUser] = useState({})    
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
@@ -29,8 +27,9 @@ const Home = () => {
 
     return (
         <div className='body'>
-            <NavBar id={loggedinuser._id} username ={loggedinuser.username}/>
-        
+            <NavBar />
+            <h1>Welcome, {loggedinuser.username}</h1>
+
             <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> Popular </Link></h3>
             <Popular />
             <h3><Link to={`/catagory/action`} className={styles.catagoryName}> Action </Link></h3>

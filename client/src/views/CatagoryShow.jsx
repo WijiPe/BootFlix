@@ -1,5 +1,5 @@
 import React from 'react'
-import NavLinks from '../components/NavLinks'
+import NavBar from '../components/NavBar';
 import ActionPage from '../components/ActionPage';
 import HorrorPage from '../components/HorrorPage';
 import {useParams} from "react-router-dom";
@@ -14,7 +14,7 @@ const CatagoryShow = () => {
 
     return (
         <div>
-            <NavLinks />
+            <NavBar />
             {catagory === "popular" && <PopularPage />}
             {catagory === "action" && <ActionPage />}
             {catagory === "horror" && <HorrorPage />}
