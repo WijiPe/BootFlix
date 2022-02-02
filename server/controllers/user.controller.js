@@ -63,6 +63,7 @@ class UserController {
         .catch(err => res.json(err))
     }
 
+
     deleteUser = (req, res) => {
         User.deleteOne({_id: req.params.id})
         .then(deleteConfrim => res.json(deleteConfrim))
