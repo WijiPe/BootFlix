@@ -23,7 +23,7 @@ const CatagoryShow = () => {
                 history.push('/')
                 console.log("errorrrrrr", err)
             })
-    }, [])
+    })
 
 
 
