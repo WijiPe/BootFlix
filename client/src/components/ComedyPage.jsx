@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from '../style/style.module.css';
 import {Link} from "react-router-dom";
+import styles from '../style/style.module.css';
 
-const ActionPage = () => {
+const ComedyPage = () => {
 
-    const [action, setAction] = useState([])
+    const [comedy, setComedy] = useState([])
     const [page, setPage] = useState(1)
 
     useEffect(() => {
@@ -13,12 +13,12 @@ const ActionPage = () => {
             .then(res => {
                 const tempArray = []
                 res.data.results.map((movie, i) => {
-                    if(movie.genre_ids.includes(28)){
+                    if(movie.genre_ids.includes(35)){
                         tempArray.push(movie)
                         }
                     }
                 )
-                setAction(tempArray)
+                setComedy(tempArray)
             })
             .catch(err => {
                 console.log("errorrrrrr", err)
@@ -26,8 +26,8 @@ const ActionPage = () => {
     })
 
     return (
-    
-        <div>
+
+        <div >
             <button onClick={e=>setPage(1)}>1</button>
             <button onClick={e=>setPage(2)}>2</button>
             <button onClick={e=>setPage(3)}>3</button>
@@ -41,19 +41,19 @@ const ActionPage = () => {
 
             <div>
             {
-            action && 
-            action.map((movie, i) => (
+            comedy && 
+            comedy.map((movie, i) => (
+            
+                <div key ={i} >
+                    <Link to={`/movie/details/${movie.id}`}><img className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
+                </div>
                 
-                    <div key ={i} >
-                        <Link to={`/movie/details/${movie.id}`}><img className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
-                    </div>
-                    
-                )
-            )}
+            )
+        )}
             </div>
         </div>
     )
 }
 
 
-export default ActionPage
+export default ComedyPage

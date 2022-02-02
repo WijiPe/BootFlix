@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory} from "react-router-dom";
 import NavBar from '../components/NavBar';
 import ActionPage from '../components/ActionPage';
 import HorrorPage from '../components/HorrorPage';
-import {useParams} from "react-router-dom";
+import ComedyPage from '../components/ComedyPage';
+import {useParams, useHistory} from "react-router-dom";
 import PopularPage from '../components/PopularPage';
 
 
@@ -34,7 +34,7 @@ const CatagoryShow = () => {
             {catagory === "popular" && <PopularPage />}
             {catagory === "action" && <ActionPage />}
             {catagory === "horror" && <HorrorPage />}
-
+            {catagory === "comedy" && <ComedyPage />}
 
         </div>
     )
