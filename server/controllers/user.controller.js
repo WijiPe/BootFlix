@@ -19,7 +19,6 @@ class UserController {
             console.log("ya fucked up kid")})
     }
 
-
     login(req, res){
         User.findOne({email:req.body.email})
             .then(user => {
@@ -46,7 +45,6 @@ class UserController {
         User.findById(decodedJWT.payload._id)
             .then(user=> res.json(user))
             .catch(err=> res.json(err))
-
     }
 
     logout(req, res)  {

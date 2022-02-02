@@ -3,6 +3,7 @@ import axios from 'axios';
 import styles from '../style/style.module.css'
 import {Link} from "react-router-dom";
 import '../style/scroller.css'
+
 const Popular = () => {
 
     const [popular, setPopular] = useState([])
