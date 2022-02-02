@@ -3,11 +3,15 @@ import axios from 'axios';
 import styles from '../style/style.module.css'
 import {Link} from "react-router-dom";
 
-const PopularPage = () => {
 
+const PopularPage = () => {
+    
+    
     const [popular, setPopular] = useState([])
     const [page, setPage] = useState(1)
 
+
+    // retreiving data, popular movies by page number
     useEffect(() => {
         axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page="+page)
             .then(res => {

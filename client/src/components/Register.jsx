@@ -47,9 +47,6 @@ const Register = () => {
 
     }
 
-
-
-
     return (
 
                     <div className="container" >

@@ -49,7 +49,7 @@ const MovieDetails = () => {
 
     return (
         <div className='row'>
-            <NavBar  />
+            <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
             {/* <iframe width="720" height="515" src={`https://www.2embed.ru/embed/tmdb/movie?id=${id}`}></iframe> */}
             <iframe width="720" height="515" className='column left' src={`https://www.youtube.com/embed/${movieV.key}`}></iframe>
                 <h2 className='title'>{movie.original_title}</h2>

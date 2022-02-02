@@ -9,11 +9,12 @@ import NavBar from '../components/NavBar';
 import '../style/home.css'
 
 const Home = () => {
-
+    
     const history = useHistory()
     const [loggedinuser, setLoggedInUser] = useState({})    
 
     useEffect(() => {
+        // checking to seee if user is logged in, if not redirect to Index.jsx
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
             .then(res => {
                 console.log("logged in user info", res)
@@ -27,7 +28,8 @@ const Home = () => {
 
     return (
         <div className='body'>
-            <NavBar />
+            {/* need to pass these two thing to NavBar everytime */}
+            <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
 
             <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> Popular </Link></h3>
             <Popular />
