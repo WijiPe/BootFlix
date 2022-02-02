@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import NavBar from '../components/NavBar';
 import ActionPage from '../components/ActionPage';
 import HorrorPage from '../components/HorrorPage';
-import {useParams} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 import PopularPage from '../components/PopularPage';
-const [loggedinuser, setLoggedInUser] = useState({})
+import axios from 'axios';
+
 
 
 const CatagoryShow = () => {
 
 
     const {catagory} = useParams()
+    const [loggedinuser, setLoggedInUser] = useState({})
+    const history = useHistory()
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
