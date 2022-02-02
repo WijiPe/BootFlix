@@ -83,7 +83,7 @@ const MovieDetails = () => {
                 <p className='coulmn right'>{movie.release_date}</p>
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
-                <button onClick={addToFavorites}>Add to Favorites</button>
+                <button className='icon' onClick={addToFavorites}><i  class="material-icons">star_border</i></button>
 
 
         </div>

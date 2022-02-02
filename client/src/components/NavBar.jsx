@@ -55,6 +55,12 @@ const NavBar = (props) => {
         history.push(`/edit/user/${props.id}`)
     }
 
+    const home = (e) =>{ 
+        e.preventDefault();
+        let path="/home"; 
+        history.push(path);
+      }
+
 
     return (
         <AppBar  style={{ background: '#303030' }} position="static">
@@ -66,7 +72,7 @@ const NavBar = (props) => {
                         component="div"
                         sx={{ mr: 20, display: { xs: 'none', md: 'flex' } }}
                     >
-                        <img className='logo' src={bootflix}></img>
+                        <button className='clear' onClick={home}><img className='logo' src={bootflix}></img></button>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
