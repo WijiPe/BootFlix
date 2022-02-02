@@ -58,7 +58,6 @@ const MovieDetails = () => {
         }
         if(found === false){
             newFavorites.push(object)
-            console.log(newFavorites)
         }
             axios.put("http://localhost:8000/api/user/update/" + loggedinuser._id, {favorites:newFavorites})
                 .then(res => {
