@@ -8,3 +8,9 @@
     width: 130px;
     margin-left: 25px;
 }
+
+.clear {
+    background-color: transparent;
+    border-radius: 0;
+    border-color: transparent;
+}

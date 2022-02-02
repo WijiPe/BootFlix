@@ -47,7 +47,7 @@ const Popular = () => {
                             popular &&
                             popular.map((movie, i) => (i > 6 && i < 14) && (
                                 <div key={i}>
-                                    <Link to={`/movie/details/${movie.id}`}><img className='image' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="Movie Poster" ></img></Link>
+                                    <Link to={`/movie/details/${movie.id}`}><img className='image zoom' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="Movie Poster" ></img></Link>
                                 </div>
                             )
                             )}
@@ -61,7 +61,7 @@ const Popular = () => {
                             popular &&
                             popular.map((movie, i) => (i > 13) && (
                                 <div key={i}>
-                                    <Link to={`/movie/details/${movie.id}`}><img className='image' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="Movie Poster" ></img></Link>
+                                    <Link to={`/movie/details/${movie.id}`}><img className='image zoom' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="Movie Poster" ></img></Link>
                                 </div>
                             )
                             )}
