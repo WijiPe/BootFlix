@@ -11,12 +11,8 @@ const MovieDetails = () => {
     const [movieV, setMovieV] = useState([])
     const [loggedinuser, setLoggedInUser] = useState({})
     const [refresh, setRefresh] = useState(true)
-
     const {id} = useParams()
-
     const history = useHistory()
-
-
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })

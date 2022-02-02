@@ -46,8 +46,8 @@ const Home = () => {
             <Horror  />
             <h3><Link to={`/catagory/comedy`} className={styles.catagoryName}> <img className='logo1' src={comedylogo}></img> </Link></h3>
             <Comedy  />
-            <h3><Link to={`/catagory/favorite`} className={styles.catagoryName}> Comedy </Link></h3>
-            <Favorite favorites={loggedinuser.favorites} />
+            <h3><Link to={`/catagory/favorite`} className={styles.catagoryName}> Your List </Link></h3>
+            <Favorite />
 
         </div>
     )
