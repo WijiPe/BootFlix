@@ -6,6 +6,7 @@ import Popular from '../components/Popular';
 import Action from '../components/Action';
 import Horror from '../components/Horror';
 import NavBar from '../components/NavBar';
+import Comedy from '../components/Comedy';
 import '../style/home.css'
 
 const Home = () => {
@@ -37,6 +38,8 @@ const Home = () => {
             <Action />
             <h3><Link to={`/catagory/horror`} className={styles.catagoryName}> Horror </Link></h3>
             <Horror  />
+            <h3><Link to={`/catagory/comedy`} className={styles.catagoryName}> Comedy </Link></h3>
+            <Comedy  />
         </div>
     )
 }
