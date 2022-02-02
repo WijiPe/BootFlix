@@ -9,6 +9,8 @@ const MovieDetails = () => {
 
     const [movie, setMovie] = useState({})
     const [movieV, setMovieV] = useState([])
+    const [myList, setMyList] = useState(false)
+    const [favoriteMovieId, setFavoriteMovieId] = useState([])
     const [loggedinuser, setLoggedInUser] = useState({})
     const [refresh, setRefresh] = useState(true)
     const {id} = useParams()
@@ -19,13 +21,14 @@ const MovieDetails = () => {
             .then(res => {
                 console.log("logged in user info", res)
                 setLoggedInUser(res.data)
+                setFavoriteMovieId(res.data.favorites)
+                console.log(res.data.favorites)
             })
             .catch(err => {
                 history.push('/')
                 console.log("errorrrrrr", err)
             })
     },[refresh])
-
 
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US`)
@@ -52,7 +55,7 @@ const MovieDetails = () => {
         let object ={movie_id :id, moviePoster_path:movie.poster_path}
         let found = false
         for(let i=0; i<newFavorites.length; i++){
-            if (!newFavorites[i].movie_id===id){
+            if (newFavorites[i].movie_id===id){
                 found = true
             }
         }
@@ -84,7 +87,16 @@ const MovieDetails = () => {
         .catch(err => {
             console.log("errorrrrrr", err)
         })
+    }
 
+    const check =()=>{
+        setMyList(!myList)
+        if(myList === true){
+            deleteFromFavorites()
+            
+        }else{
+            addToFavorites()
+        }
     }
 
     return (
@@ -101,9 +113,17 @@ const MovieDetails = () => {
                 <p className='coulmn right'>{movie.release_date}</p>
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
+
                 <button className='icon' onClick={addToFavorites}><i  class="material-icons">star_border</i></button>
                 <button onClick={deleteFromFavorites}>Delete from My List</button>
-
+                <label>Add to My List</label>
+                {/* {
+                favoriteMovieId&&
+                favoriteMovieId.map((movie, i) => (
+                    movie.movie_id===id? <input type="checkbox" checked={myList} onClick = {check} />
+                :<input type="checkbox" checked={myList} onClick = {check} />
+                ))  
+                } */}
 
         </div>
     )

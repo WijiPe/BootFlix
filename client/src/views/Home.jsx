@@ -38,7 +38,7 @@ const Home = () => {
             {/* need to pass these two thing to NavBar everytime */}
             <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
 
-            <h3><Link to={`/catagory/myList`} className={styles.catagoryName}> Your List </Link></h3>
+            <h3><Link to={`/catagory/myList`} className={styles.catagoryName}> My List </Link></h3>
             <Favorite />
             <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> <img className='logo1' src={popularlogo}></img> </Link></h3>
             <Popular />
