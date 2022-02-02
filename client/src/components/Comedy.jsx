@@ -24,20 +24,56 @@ const Comedy = () => {
             })
     }, [])
 
-    return (
-        <div className={styles.catagoryGroup}>
-        {
-        comedy && 
-        comedy.map((movie, i) => (
-            
-                <div key ={i} >
-                    <Link to={`/movie/details/${movie.id}`}><img className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
-                </div>
-                
+    return  (
+        <body>
+         
+         <div class="wrapper">
+             <section id="section7">
+                 <a href="#section9" class="arrow__btn">‹</a>
+                 <div className={styles.catagoryGroup}>
+                     {
+                     comedy &&
+                     comedy.map((movie, i) => (i < 7 )&&(
+                        <div key ={i} >
+                        <Link to={`/movie/details/${movie.id}`}><img className='image' src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
+                    </div>
+                         )
+                     )}
+                 </div>
+                 <a href="#section8" class="arrow__btn">›</a>
+             </section>
+             <section id="section8">
+                 <a href="#section7" class="arrow__btn">‹</a>
+                 <div className={styles.catagoryGroup}>
+                     {
+                     comedy &&
+                     comedy.map((movie, i) => (i > 6 && i < 14 )&&(
+                             <div key ={i}>
+                                 <Link to={`/movie/details/${movie.id}`}><img  className='image' src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
+                             </div>
+                         )
+                     )}
+                 </div>
+                 <a href="#section9" class="arrow__btn">›</a>
+             </section>
+             <section id="section9">
+                 <a href="#section8" class="arrow__btn">‹</a>
+                 <div className={styles.catagoryGroup}>
+                     {
+                     comedy &&
+                     comedy.map((movie, i) => ( i > 13 )&&(
+                             <div key ={i}>
+                                 <Link to={`/movie/details/${movie.id}`}><img  className='image' src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
+                             </div>
+                         )
+                     )}
+                 </div>
+                 <a href="#section7" class="arrow__btn">›</a>
+             </section>
+         </div>
+        
+        </body>
             )
-        )}
-        </div>
-    )
 }
 
 export default Comedy
