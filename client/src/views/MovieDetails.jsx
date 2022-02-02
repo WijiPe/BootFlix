@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { set } from 'mongoose';
 import React, { useState, useEffect } from 'react';
 import {useParams, useHistory} from "react-router-dom";
 import NavBar from '../components/NavBar';
@@ -9,8 +10,12 @@ const MovieDetails = () => {
     const [movie, setMovie] = useState({})
     const [movieV, setMovieV] = useState([])
     const [loggedinuser, setLoggedInUser] = useState({})
+    const [refresh, setRefresh] = useState(true)
+
     const {id} = useParams()
+
     const history = useHistory()
+
 
 
     useEffect(() => {
@@ -23,7 +28,7 @@ const MovieDetails = () => {
                 history.push('/')
                 console.log("errorrrrrr", err)
             })
-    })
+    },[refresh])
 
 
     useEffect(() => {
@@ -46,6 +51,20 @@ const MovieDetails = () => {
             })
     }, [id])
 
+    const addToFavorites = () => {
+        let newFavorites = [...loggedinuser.favorites]
+        if (!newFavorites.includes(id)){
+            newFavorites.push(id)
+            axios.put("http://localhost:8000/api/user/update/" + loggedinuser._id, {favorites: newFavorites})
+                .then(res => {
+                    setRefresh(!refresh)
+                    console.log(res.data)
+                })
+                .catch(err => {
+                    console.log("errorrrrrr", err)
+                })
+        }
+    }
 
     return (
         <div className='row'>
@@ -61,6 +80,7 @@ const MovieDetails = () => {
                 <p className='coulmn right'>{movie.release_date}</p>
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
+                <button onClick={addToFavorites}>Add to Favorites</button>
 
 
         </div>
