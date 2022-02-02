@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useHistory} from "react-router-dom";
 import NavBar from '../components/NavBar';
 import ActionPage from '../components/ActionPage';
 import HorrorPage from '../components/HorrorPage';
 import {useParams} from "react-router-dom";
 import PopularPage from '../components/PopularPage';
-const [loggedinuser, setLoggedInUser] = useState({})
 
 
 const CatagoryShow = () => {
-
-
+    
+    const history = useHistory()
+    const [loggedinuser, setLoggedInUser] = useState({})
     const {catagory} = useParams()
 
     useEffect(() => {
@@ -28,7 +30,7 @@ const CatagoryShow = () => {
 
     return (
         <div>
-            <NavBar />
+            <NavBar id={loggedinuser._id} username={loggedinuser.username}/>
             {catagory === "popular" && <PopularPage />}
             {catagory === "action" && <ActionPage />}
             {catagory === "horror" && <HorrorPage />}
