@@ -69,6 +69,24 @@ const MovieDetails = () => {
                 })
     }
 
+    const deleteFromFavorites =() =>{
+        let newFavorites = [...loggedinuser.favorites]
+        for(let i=0; i<newFavorites.length; i++){
+            if (newFavorites[i].movie_id===id){
+                newFavorites.splice(i,1)
+            }
+        }
+        axios.put("http://localhost:8000/api/user/update/" + loggedinuser._id, {favorites:newFavorites})
+        .then(res => {
+            setRefresh(!refresh)
+            console.log(res.data)
+        })
+        .catch(err => {
+            console.log("errorrrrrr", err)
+        })
+
+    }
+
     return (
         <div className='row'>
             <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
@@ -84,6 +102,7 @@ const MovieDetails = () => {
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
                 <button className='icon' onClick={addToFavorites}><i  class="material-icons">star_border</i></button>
+                <button onClick={deleteFromFavorites}>Delete from My List</button>
 
 
         </div>
