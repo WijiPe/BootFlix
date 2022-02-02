@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import Login from './Login';
 import { useHistory } from 'react-router-dom';
 import '../style/loginreg.css'
 import BootFlixLogo from './BootFlixLogo';

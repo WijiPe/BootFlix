@@ -36,7 +36,6 @@ const CatagoryShow = () => {
             {catagory === "horror" && <HorrorPage />}
             {catagory === "comedy" && <ComedyPage />}
 
-
         </div>
     )
 }
