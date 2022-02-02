@@ -3,7 +3,7 @@ import axios from 'axios';
 import NavBar from '../components/NavBar';
 import ActionPage from '../components/ActionPage';
 import HorrorPage from '../components/HorrorPage';
-import ComedyPage from '../components/Comedy';
+import ComedyPage from '../components/ComedyPage';
 import {useParams, useHistory} from "react-router-dom";
 import PopularPage from '../components/PopularPage';
 
