@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../style/style.module.css'
 import {Link} from "react-router-dom";
-
+import '../style/scroller.css'
 const Popular = () => {
 
     const [popular, setPopular] = useState([])
@@ -23,16 +23,54 @@ const Popular = () => {
     }, [])
 
     return (
-        <div className={styles.catagoryGroup}>
-            {
-            popular &&
-            popular.map((movie, i) => (i > 7 && i < 15 )&&(
-                    <div key ={i}>
-                        <Link to={`/movie/details/${movie.id}`}><img  className={styles.image} src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
-                    </div>
-                )
-            )}
-        </div>
+<body>
+ 
+ <div class="wrapper">
+     <section id="section1">
+         <a href="#section3" class="arrow__btn">‹</a>
+         <div className={styles.catagoryGroup}>
+             {
+             popular &&
+             popular.map((movie, i) => (i < 7 )&&(
+                     <div key ={i}>
+                         <Link to={`/movie/details/${movie.id}`}><img  className='image' src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
+                     </div>
+                 )
+             )}
+         </div>
+         <a href="#section2" class="arrow__btn">›</a>
+     </section>
+     <section id="section2">
+         <a href="#section1" class="arrow__btn">‹</a>
+         <div className={styles.catagoryGroup}>
+             {
+             popular &&
+             popular.map((movie, i) => (i > 6 && i < 14 )&&(
+                     <div key ={i}>
+                         <Link to={`/movie/details/${movie.id}`}><img  className='image' src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
+                     </div>
+                 )
+             )}
+         </div>
+         <a href="#section3" class="arrow__btn">›</a>
+     </section>
+     <section id="section3">
+         <a href="#section2" class="arrow__btn">‹</a>
+         <div className={styles.catagoryGroup}>
+             {
+             popular &&
+             popular.map((movie, i) => ( i > 13 )&&(
+                     <div key ={i}>
+                         <Link to={`/movie/details/${movie.id}`}><img  className='image' src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
+                     </div>
+                 )
+             )}
+         </div>
+         <a href="#section1" class="arrow__btn">›</a>
+     </section>
+ </div>
+
+</body>
     )
 }
 
