@@ -29,8 +29,8 @@ const Favorite = () => {
         <body>
          
          <div class="wrapper">
-             <section id="section7">
-                 <a href="#section9" class="arrow__btn">‹</a>
+             <section id="section13">
+                 <a href="#section15" class="arrow__btn">‹</a>
                  <div className={styles.catagoryGroup}>
                      {favorite&&
                      favorite.map((movie, i) => (i < 7 )&&(
@@ -40,10 +40,10 @@ const Favorite = () => {
                          )
                      )}
                  </div>
-                 <a href="#section8" class="arrow__btn">›</a>
+                 <a href="#section14" class="arrow__btn">›</a>
              </section>
-             <section id="section8">
-                 <a href="#section7" class="arrow__btn">‹</a>
+             <section id="section14">
+                 <a href="#section13" class="arrow__btn">‹</a>
                  <div className={styles.catagoryGroup}>
                      {favorite&&
                      favorite.map((movie, i) => (i > 6 && i < 14 )&&(
@@ -53,10 +53,10 @@ const Favorite = () => {
                          )
                      )}
                  </div>
-                 <a href="#section9" class="arrow__btn">›</a>
+                 <a href="#section15" class="arrow__btn">›</a>
              </section>
-             <section id="section9">
-                 <a href="#section8" class="arrow__btn">‹</a>
+             <section id="section15">
+                 <a href="#section14" class="arrow__btn">‹</a>
                  <div className={styles.catagoryGroup}>
                      {favorite&&
                      favorite.map((movie, i) => ( i > 13 )&&(
@@ -66,7 +66,7 @@ const Favorite = () => {
                          )
                      )}
                  </div>
-                 <a href="#section7" class="arrow__btn">›</a>
+                 <a href="#section13" class="arrow__btn">›</a>
              </section>
          </div>
         
