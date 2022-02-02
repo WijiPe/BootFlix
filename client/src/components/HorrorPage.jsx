@@ -37,6 +37,17 @@ const HorrorPage = () => {
             <button onClick={e=>setPage(8)}>8</button>
             <button onClick={e=>setPage(9)}>9</button>
             <button onClick={e=>setPage(10)}>10</button>
+            <button onClick={e=>setPage(11)}>11</button>
+            <button onClick={e=>setPage(12)}>12</button>
+            <button onClick={e=>setPage(13)}>13</button>
+            <button onClick={e=>setPage(14)}>14</button>
+            <button onClick={e=>setPage(15)}>15</button>
+            <button onClick={e=>setPage(16)}>16</button>
+            <button onClick={e=>setPage(17)}>17</button>
+            <button onClick={e=>setPage(18)}>18</button>
+            <button onClick={e=>setPage(19)}>19</button>
+            <button onClick={e=>setPage(20)}>20</button>
+            <button onClick={e=>setPage(page+1)}>{page+1}</button>
 
 
             <div>
