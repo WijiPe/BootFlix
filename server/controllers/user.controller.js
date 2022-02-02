@@ -16,7 +16,7 @@ class UserController {
 
             })
             .catch(err=> {res.json(err);
-            console.log("ya fucked up kid")})
+            console.log("you messed up")})
     }
 
 
@@ -46,7 +46,6 @@ class UserController {
         User.findById(decodedJWT.payload._id)
             .then(user=> res.json(user))
             .catch(err=> res.json(err))
-
     }
 
     logout(req, res)  {
@@ -60,7 +59,7 @@ class UserController {
     }
 
     updateUser = (req, res) => {
-        User.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+        User.findOneAndUpdate({_id: req.params.id}, req.body, {new:true, runValidators:true})
         .then(updatedUser => res.json(updatedUser))
         .catch(err => res.json(err))
     }
@@ -76,7 +75,7 @@ class UserController {
             .then(user => res.json(user))
             .catch(err => res.json(err))
     }
-    removeFavorite
+    
 }
 
 
