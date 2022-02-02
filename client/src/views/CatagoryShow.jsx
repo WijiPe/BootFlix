@@ -3,6 +3,7 @@ import axios from 'axios';
 import NavBar from '../components/NavBar';
 import ActionPage from '../components/ActionPage';
 import HorrorPage from '../components/HorrorPage';
+import ComedyPage from '../components/Comedy';
 import {useParams, useHistory} from "react-router-dom";
 import PopularPage from '../components/PopularPage';
 
@@ -23,7 +24,7 @@ const CatagoryShow = () => {
                 history.push('/')
                 console.log("errorrrrrr", err)
             })
-    })
+    }, [])
 
 
 
@@ -33,6 +34,7 @@ const CatagoryShow = () => {
             {catagory === "popular" && <PopularPage />}
             {catagory === "action" && <ActionPage />}
             {catagory === "horror" && <HorrorPage />}
+            {catagory === "comedy" && <ComedyPage />}
 
 
         </div>
