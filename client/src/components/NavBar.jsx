@@ -15,6 +15,9 @@ import BootFlixLogo from './BootFlixLogo';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios'
 
+import bootflix from '../pngs/bootflix.png';
+import '../style/logo.css'
+
 
 const pages = ['Home', 'Popular', 'Action', 'Kids'];
 
@@ -63,7 +66,7 @@ const NavBar = (props) => {
                         component="div"
                         sx={{ mr: 20, display: { xs: 'none', md: 'flex' } }}
                     >
-                        <BootFlixLogo />
+                        <img className='logo' src={bootflix}></img>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

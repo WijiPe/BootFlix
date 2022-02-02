@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { set } from 'mongoose';
 import React, { useState, useEffect } from 'react';
 import {useParams, useHistory} from "react-router-dom";
 import NavBar from '../components/NavBar';
@@ -10,12 +11,8 @@ const MovieDetails = () => {
     const [movieV, setMovieV] = useState([])
     const [loggedinuser, setLoggedInUser] = useState({})
     const [refresh, setRefresh] = useState(true)
-
     const {id} = useParams()
-
     const history = useHistory()
-
-
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
@@ -52,9 +49,17 @@ const MovieDetails = () => {
 
     const addToFavorites = () => {
         let newFavorites = [...loggedinuser.favorites]
-        if (!newFavorites.includes(id)){
-            newFavorites.push(id)
-            axios.put("http://localhost:8000/api/user/update/" + loggedinuser._id, {favorites: newFavorites})
+        let object ={movie_id :id, moviePoster_path:movie.poster_path}
+        let found = false
+        for(let i=0; i<newFavorites.length; i++){
+            if (!newFavorites[i].movie_id===id){
+                found = true
+            }
+        }
+        if(found === false){
+            newFavorites.push(object)
+        }
+            axios.put("http://localhost:8000/api/user/update/" + loggedinuser._id, {favorites:newFavorites})
                 .then(res => {
                     setRefresh(!refresh)
                     console.log(res.data)
@@ -62,7 +67,6 @@ const MovieDetails = () => {
                 .catch(err => {
                     console.log("errorrrrrr", err)
                 })
-        }
     }
 
     return (

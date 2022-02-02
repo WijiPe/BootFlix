@@ -9,6 +9,11 @@ import NavBar from '../components/NavBar';
 import Comedy from '../components/Comedy';
 import Favorite from '../components/Favorite';
 import '../style/home.css'
+import actionlogo from '../pngs/action.png';
+import popularlogo from '../pngs/popular.png';
+import comedylogo from '../pngs/comedy.png';
+import horrorlogo from '../pngs/horror.png';
+import '../style/logo.css'
 
 const Home = () => {
     
@@ -33,16 +38,17 @@ const Home = () => {
             {/* need to pass these two thing to NavBar everytime */}
             <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
 
-            <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> Popular </Link></h3>
+            <h3><Link to={`/catagory/myList`} className={styles.catagoryName}> Your List </Link></h3>
+            <Favorite />
+            <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> <img className='logo1' src={popularlogo}></img> </Link></h3>
             <Popular />
-            <h3><Link to={`/catagory/action`} className={styles.catagoryName}> Action </Link></h3>
+            <h3><Link to={`/catagory/action`} className={styles.catagoryName}> <img className='logo1' src={actionlogo}></img></Link></h3>
             <Action />
-            <h3><Link to={`/catagory/horror`} className={styles.catagoryName}> Horror </Link></h3>
+            <h3><Link to={`/catagory/horror`} className={styles.catagoryName}> <img className='logo1' src={horrorlogo}></img> </Link></h3>
             <Horror  />
-            <h3><Link to={`/catagory/comedy`} className={styles.catagoryName}> Comedy </Link></h3>
+            <h3><Link to={`/catagory/comedy`} className={styles.catagoryName}> <img className='logo1' src={comedylogo}></img> </Link></h3>
             <Comedy  />
-            <h3><Link to={`/catagory/favorite`} className={styles.catagoryName}> Comedy </Link></h3>
-            <Favorite favorites={loggedinuser.favorites} />
+
 
         </div>
     )
