@@ -27,8 +27,7 @@ const Home = () => {
 
     return (
         <div className='body'>
-            <NavBar />
-            <h1>Welcome, {loggedinuser.username}</h1>
+            <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
 
             <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> Popular </Link></h3>
             <Popular />
