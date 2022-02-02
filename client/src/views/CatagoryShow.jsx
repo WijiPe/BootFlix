@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory} from "react-router-dom";
 import NavBar from '../components/NavBar';
 import ActionPage from '../components/ActionPage';
 import HorrorPage from '../components/HorrorPage';
@@ -13,8 +12,6 @@ const CatagoryShow = () => {
     const history = useHistory()
     const [loggedinuser, setLoggedInUser] = useState({})
     const {catagory} = useParams()
-    const [loggedinuser, setLoggedInUser] = useState({})
-    const history = useHistory()
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })

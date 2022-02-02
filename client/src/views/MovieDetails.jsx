@@ -23,7 +23,7 @@ const MovieDetails = () => {
                 history.push('/')
                 console.log("errorrrrrr", err)
             })
-    }, [])
+    },[])
 
 
     useEffect(() => {
