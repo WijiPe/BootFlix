@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styles from '../style/style.module.css'
-import { Link, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
 import '../style/scroller.css'
 
 const Favorite = (props) => {

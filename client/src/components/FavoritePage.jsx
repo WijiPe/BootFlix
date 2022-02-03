@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import styles from '../style/style.module.css';
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import '../style/scroller.css'
 
@@ -9,11 +8,11 @@ import '../style/scroller.css'
 const FavoritePage = (props) => {
 
     const {favorites} = props
-    
+
     return  (
         <body>
          
-         <div class="wrapper maintop favoritepage">
+         <div class="wrapper">
              <section className='favoritepage' id="section13"> 
                  <a href="#section15" class="arrow__btn">‹</a>
                  <div className={styles.catagoryGroup}>
