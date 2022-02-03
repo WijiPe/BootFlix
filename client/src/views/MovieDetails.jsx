@@ -5,10 +5,8 @@ import NavBar from '../components/NavBar';
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import '../style/moviedetails.css'
-import { FormControl } from '@mui/material';
+
 
 const MovieDetails = () => {
 
