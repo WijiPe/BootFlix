@@ -2,7 +2,11 @@ import axios from 'axios';
 import {useParams, useHistory} from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
 import '../style/moviedetails.css'
+
 
 const MovieDetails = () => {
 
@@ -129,12 +133,20 @@ const MovieDetails = () => {
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
 
-                <label for="heart">Add to My List</label>
+                <label>Add to My List</label>
+                {/* {
+                favoriteMovieId === id? <input type="checkbox" checked={myList} onClick = {check} />
+                :<input type="checkbox" checked={myList2} onClick = {check2} />
+                } */}
                 {
-                favoriteMovieId === id? <input type="checkbox" checked={myList} onClick = {check} checked/>
-                :<input type="checkbox" checked={myList2} onClick = {check2} checked/>
+                favoriteMovieId === id ? <Checkbox color="error" checked={myList} onClick = {check} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
+                :<Checkbox  color="error" checked={myList2} onClick = {check2} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />    
+                }
+                
+                
+                
 
-}
+
         </div>
     )
 }
