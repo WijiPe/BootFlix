@@ -28,13 +28,12 @@ const MovieDetails = () => {
                     }
                 }
             }
-        )
+        ) 
         .catch(err => {
             history.push('/')
             console.log("errorrrrrr", err)
         })
     },[refresh])
-    const [object, setObject] = [{movie_id :id, moviePoster_path: movie.poster_path}]
     
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US`)
@@ -97,7 +96,6 @@ const MovieDetails = () => {
     }
 
     const check =()=>{
-        console.log(loggedinuser.favorites.includes(object))
         setMyList(!myList)
         if(myList === true){
             deleteFromFavorites()
@@ -106,10 +104,10 @@ const MovieDetails = () => {
             addToFavorites()
         }
     }
-    const hasFavorite = () => {
-        console.log(loggedinuser.favorites.includes(object))
-        return (loggedinuser.favorites.includes(object))
-    }
+    // const hasFavorite = () => {
+    //     console.log(loggedinuser.favorites.includes(object))
+    //     return (loggedinuser.favorites.includes(object))
+    // }
     
     return (
         <div className='row'>
@@ -130,13 +128,8 @@ const MovieDetails = () => {
                 <button onClick={deleteFromFavorites}>Delete from My List</button> */}
                 <label>Add to My List</label>
                 {
-<<<<<<< HEAD
-                favoriteMovieId? <input type="checkbox" checked={true} onClick = {check} />
-                :<input type="checkbox" checked={hasFavorite} onClick = {check} />
-=======
                 favoriteMovieId===id? <input type="checkbox" checked={myList} onClick = {check} />
                 :<input type="checkbox" checked={myNotList} onClick = {check} />
->>>>>>> origin/main
                 }
 
         </div>
