@@ -28,7 +28,7 @@ const Action = () => {
     return (
         <body>
          
-         <div class="wrapper">
+         <div class="wrapper maintop">
              <section id="section4">
                  <a href="#section6" class="arrow__btn">‹</a>
                  <div className={styles.catagoryGroup}>
