@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { set } from 'mongoose';
-import React, { useState, useEffect } from 'react';
 import {useParams, useHistory} from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import '../style/moviedetails.css'
 
@@ -9,6 +8,8 @@ const MovieDetails = () => {
 
     const [movie, setMovie] = useState({})
     const [movieV, setMovieV] = useState([])
+    const [myList, setMyList] = useState(true)
+    const [favoriteMovieId, setFavoriteMovieId] = useState(null)
     const [loggedinuser, setLoggedInUser] = useState({})
     const [refresh, setRefresh] = useState(true)
     const {id} = useParams()
@@ -19,14 +20,20 @@ const MovieDetails = () => {
             .then(res => {
                 console.log("logged in user info", res)
                 setLoggedInUser(res.data)
-            })
-            .catch(err => {
-                history.push('/')
-                console.log("errorrrrrr", err)
-            })
+                let MovieId = res.data.favorites
+                for(let i=0; i<MovieId.length; i++){
+                    if(MovieId[i].movie_id===id){
+                        setFavoriteMovieId(MovieId[i].movie_id)
+                    }
+                }
+            }
+        ) 
+        .catch(err => {
+            history.push('/')
+            console.log("errorrrrrr", err)
+        })
     },[refresh])
-
-
+    
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US`)
             .then(res => {
@@ -52,7 +59,7 @@ const MovieDetails = () => {
         let object ={movie_id :id, moviePoster_path:movie.poster_path}
         let found = false
         for(let i=0; i<newFavorites.length; i++){
-            if (!newFavorites[i].movie_id===id){
+            if (newFavorites[i].movie_id===id){
                 found = true
             }
         }
@@ -84,9 +91,22 @@ const MovieDetails = () => {
         .catch(err => {
             console.log("errorrrrrr", err)
         })
-
     }
 
+    const check =()=>{
+        setMyList(!myList)
+        if(myList === true){
+            deleteFromFavorites()
+            
+        }else{
+            addToFavorites()
+        }
+    }
+    // const hasFavorite = () => {
+    //     console.log(loggedinuser.favorites.includes(object))
+    //     return (loggedinuser.favorites.includes(object))
+    // }
+    
     return (
         <div className='row'>
             <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
@@ -101,10 +121,15 @@ const MovieDetails = () => {
                 <p className='coulmn right'>{movie.release_date}</p>
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
-                <button className='icon' onClick={addToFavorites}><i  class="material-icons">star_border</i></button>
-                <button onClick={deleteFromFavorites}>Delete from My List</button>
 
+                <label>Add to My List</label>
+                {
+                favoriteMovieId === id? <input type="checkbox" checked={myList} onClick = {check} />
+                :<input type="checkbox" checked={false} onClick = {check} />
 
+                // favoriteMovieId === id? <input type="checkbox" checked={true} onClick = {check} />
+                // :<input type="checkbox" checked={false} onClick = {check} />
+}
         </div>
     )
 }
