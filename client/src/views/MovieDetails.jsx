@@ -124,7 +124,7 @@ const MovieDetails = () => {
                 <label>Add to My List</label>
                 {
                 favoriteMovieId===id? <input type="checkbox" checked={myList} onClick = {check} />
-                :<input type="checkbox" checked={myNotList} onClick = {check} />
+                :<input type="checkbox" checked={false} onClick = {check} />
                 }
 
         </div>
