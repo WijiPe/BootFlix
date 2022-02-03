@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
 import {useParams, useHistory} from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import '../style/moviedetails.css'
 
@@ -9,13 +9,12 @@ const MovieDetails = () => {
     const [movie, setMovie] = useState({})
     const [movieV, setMovieV] = useState([])
     const [myList, setMyList] = useState(true)
-    const [myNotList, setMyNotList] = useState(false)
-    const [favoriteMovieId, setFavoriteMovieId] = useState([])
+    const [favoriteMovieId, setFavoriteMovieId] = useState(null)
     const [loggedinuser, setLoggedInUser] = useState({})
     const [refresh, setRefresh] = useState(true)
     const {id} = useParams()
     const history = useHistory()
-    
+
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
             .then(res => {
@@ -124,14 +123,14 @@ const MovieDetails = () => {
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
 
-                {/* <button className='icon' onClick={addToFavorites}><i  class="material-icons">star_border</i></button>
-                <button onClick={deleteFromFavorites}>Delete from My List</button> */}
                 <label>Add to My List</label>
                 {
-                favoriteMovieId===id? <input type="checkbox" checked={myList} onClick = {check} />
-                :<input type="checkbox" checked={myNotList} onClick = {check} />
-                }
+                // favoriteMovieId===id? <input type="checkbox" checked={myList} onClick = {check} />
+                // :<input type="checkbox" checked={myNotList} onClick = {check} />
 
+                favoriteMovieId === id? <input type="checkbox" checked={true} onClick = {check} />
+                :<input type="checkbox" checked={false} onClick = {check} />
+}
         </div>
     )
 }
