@@ -44,6 +44,14 @@ html {
  
 }
 
+.favorite {
+  padding-top:5px; 
+}
+
+.favoritepage {
+  padding-top:100px; 
+}
+
 .maintop {
   padding: 50px;
 margin-top: -100px;

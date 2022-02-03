@@ -20,7 +20,7 @@ const Popular = () => {
             .catch(err => {
                 console.log("errorrrrrr", err)
             })
-    }, [])
+    })
 
     return (
         <body>
