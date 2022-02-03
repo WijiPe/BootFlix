@@ -20,6 +20,7 @@ const Home = () => {
     
     const history = useHistory()
     const [loggedinuser, setLoggedInUser] = useState({})    
+    const [favorites, setFavorites] = useState([])    
 
     useEffect(() => {
         // checking to seee if user is logged in, if not redirect to Index.jsx
@@ -27,6 +28,7 @@ const Home = () => {
             .then(res => {
                 console.log("logged in user info", res)
                 setLoggedInUser(res.data)
+                setFavorites(res.data.favorites)
             })
             .catch(err => {
                 history.push('/')
@@ -40,7 +42,7 @@ const Home = () => {
             <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
 
             <h3><Link to={`/catagory/myList`} className={styles.catagoryName}><img className='logo1' src={favoriteslogo}></img></Link></h3>
-            <Favorite />
+            <Favorite favorites = {favorites}/>
             <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> <img className='logo1' src={popularlogo}></img> </Link></h3>
             <Popular />
             <h3><Link to={`/catagory/action`} className={styles.catagoryName}> <img className='logo1' src={actionlogo}></img></Link></h3>

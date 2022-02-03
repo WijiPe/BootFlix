@@ -12,6 +12,7 @@ import FavoritePage from '../components/FavoritePage';
 const CatagoryShow = () => {
     
     const history = useHistory()
+    const [favorites, setFavorites] = useState([])
     const [loggedinuser, setLoggedInUser] = useState({})
     const {catagory} = useParams()
 
@@ -20,6 +21,7 @@ const CatagoryShow = () => {
             .then(res => {
                 console.log("logged in user info", res)
                 setLoggedInUser(res.data)
+                setFavorites(res.data.favorites)
             })
             .catch(err => {
                 history.push('/')
@@ -36,7 +38,7 @@ const CatagoryShow = () => {
             {catagory === "action" && <ActionPage />}
             {catagory === "horror" && <HorrorPage />}
             {catagory === "comedy" && <ComedyPage />}
-            {catagory === "myList" && <FavoritePage />}
+            {catagory === "myList" && <FavoritePage favorites = {favorites}/>}
 
         </div>
     )

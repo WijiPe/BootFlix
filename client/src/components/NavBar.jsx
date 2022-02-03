@@ -112,6 +112,7 @@ const NavBar = (props) => {
                             
                                 <MenuItem onClick={handleCloseNavMenu} >
                                     <Button color="error" onClick={() => history.push('/home')}> Home</Button>
+                                    <Button color="error" onClick={() => history.push('/catagory/popular')}> Popular</Button>
                                     <Button color="error" onClick={() => history.push('/catagory/action')}> Action</Button>
                                     <Button color="error" onClick={() => history.push('/catagory/horror')}> Horror</Button>
                                     <Button color="error" onClick={() => history.push('/search')}> Search</Button>
