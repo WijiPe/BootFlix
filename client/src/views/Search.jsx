@@ -20,7 +20,6 @@ const Search = () => {
                 res.data.results.map((movie, i) => tempArray.push(movie))
                 setMovies(tempArray)
                 
-
             })
     }
 
