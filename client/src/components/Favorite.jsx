@@ -28,7 +28,7 @@ const Favorite = () => {
     return  (
         <body>
          
-         <div class="wrapper">
+         <div class="wrapper maintop">
              <section id="section13">
                  <a href="#section15" class="arrow__btn">‹</a>
                  <div className={styles.catagoryGroup}>

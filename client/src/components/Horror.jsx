@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from '../style/style.module.css'
 import {Link} from "react-router-dom";
+import '../style/scroller.css'
 
 const Horror = () => {
 
@@ -27,7 +28,7 @@ const Horror = () => {
     return (
         <body>
          
-         <div class="wrapper">
+         <div class="wrapper maintop">
              <section id="section10">
                  <a href="#section12" class="arrow__btn">‹</a>
                  <div className={styles.catagoryGroup}>
