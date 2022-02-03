@@ -97,7 +97,6 @@ const MovieDetails = () => {
     }
 
     const check =()=>{
-        console.log(loggedinuser.favorites.includes(object))
         setMyList(!myList)
         if(myList === true){
             deleteFromFavorites()
