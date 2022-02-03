@@ -27,7 +27,7 @@ const Comedy = () => {
     return  (
         <body>
          
-         <div class="wrapper">
+         <div class="wrapper maintop">
              <section id="section7">
                  <a href="#section9" class="arrow__btn">‹</a>
                  <div className={styles.catagoryGroup}>

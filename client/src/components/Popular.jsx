@@ -25,7 +25,7 @@ const Popular = () => {
     return (
         <body>
 
-            <div class="wrapper">
+            <div class="wrapper maintop">
                 <section id="section1">
                     <a href="#section3" class="arrow__btn">‹</a>
                     <div className={styles.catagoryGroup}>

@@ -9,10 +9,11 @@ import NavBar from '../components/NavBar';
 import Comedy from '../components/Comedy';
 import Favorite from '../components/Favorite';
 import '../style/home.css'
-import actionlogo from '../pngs/action.png';
-import popularlogo from '../pngs/popular.png';
-import comedylogo from '../pngs/comedy.png';
-import horrorlogo from '../pngs/horror.png';
+import actionlogo from '../pngs/action1.png';
+import popularlogo from '../pngs/popular1.png';
+import comedylogo from '../pngs/comedy1.png';
+import horrorlogo from '../pngs/horror1.png';
+import favoriteslogo from '../pngs/favorites2.png';
 import '../style/logo.css'
 
 const Home = () => {
@@ -38,7 +39,7 @@ const Home = () => {
             {/* need to pass these two thing to NavBar everytime */}
             <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
 
-            <h3><Link to={`/catagory/myList`} className={styles.catagoryName}> My List </Link></h3>
+            <h3><Link to={`/catagory/myList`} className={styles.catagoryName}><img className='logo1' src={favoriteslogo}></img></Link></h3>
             <Favorite />
             <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> <img className='logo1' src={popularlogo}></img> </Link></h3>
             <Popular />

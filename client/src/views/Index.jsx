@@ -1,5 +1,5 @@
 
-import BootFlixLogo from '../components/BootFlixLogo';
+import bootflix from '../pngs/bootflix.png';
 import {useHistory} from "react-router-dom";
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -32,7 +32,7 @@ export default function Index() {
         },
     }}
     >
-    <BootFlixLogo  />
+    <button className='clear' onClick={() => history.push('/home')}><img className='logo' src={bootflix}></img></button>
     
     <ButtonGroup size="large" color = "error" aria-label="medium error button group">
         {buttons}

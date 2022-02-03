@@ -27,7 +27,7 @@ const MovieDetails = () => {
                     }
                 }
             }
-        )
+        ) 
         .catch(err => {
             history.push('/')
             console.log("errorrrrrr", err)
@@ -102,6 +102,10 @@ const MovieDetails = () => {
             addToFavorites()
         }
     }
+    // const hasFavorite = () => {
+    //     console.log(loggedinuser.favorites.includes(object))
+    //     return (loggedinuser.favorites.includes(object))
+    // }
     
     return (
         <div className='row'>
@@ -122,7 +126,10 @@ const MovieDetails = () => {
                 {
                 favoriteMovieId === id? <input type="checkbox" checked={myList} onClick = {check} />
                 :<input type="checkbox" checked={false} onClick = {check} />
-                }
+
+                // favoriteMovieId === id? <input type="checkbox" checked={true} onClick = {check} />
+                // :<input type="checkbox" checked={false} onClick = {check} />
+}
         </div>
     )
 }
