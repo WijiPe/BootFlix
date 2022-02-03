@@ -19,7 +19,7 @@ import bootflix from '../pngs/bootflix.png';
 import '../style/logo.css'
 
 
-const pages = ['Home', 'Popular', 'Action', 'Kids'];
+const pages = ['Popular', 'Action', 'Kids'];
 
 
 const NavBar = (props) => {
@@ -51,7 +51,8 @@ const NavBar = (props) => {
                     console.log(err)
                 })
             }
-    const edituser = () => {
+    const edituser = (e) => {
+        e.preventDefault();
         history.push(`/edit/user/${props.id}`)
     }
 
@@ -59,7 +60,12 @@ const NavBar = (props) => {
         e.preventDefault();
         let path="/home"; 
         history.push(path);
-      }
+    }
+    
+    const goToFavorites = (e) => {
+        e.preventDefault();
+        history.push('/catagory/myList')
+    }
 
 
     return (
@@ -104,12 +110,13 @@ const NavBar = (props) => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
+                            
+                                {/* <MenuItem onClick={handleCloseNavMenu}>
+                                    <Button onClick={() => history.push('/home')}> Home</Button>
+                                    <Button onClick={() => history.push('/catagory/action')}> Action</Button>
+                                    <Button onClick={() => history.push('/catagory/horror')}> Horror</Button>
+                                </MenuItem> */}
+                            
                         </Menu>
                     </Box>
                     <Typography
@@ -124,7 +131,7 @@ const NavBar = (props) => {
                         {pages.map((page) => (
                             <Button
                                 key={page}
-                                onClick={handleCloseNavMenu}
+                                onClick={handleCloseNavMenu, ()=> history.push(`/catagory/${page.toLowerCase()}`)}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
                                 {page}
@@ -159,7 +166,7 @@ const NavBar = (props) => {
                                     <Button onClick={edituser}>Edit Profile</Button>
                                 </MenuItem>
                                 <MenuItem onClick={handleCloseUserMenu}>
-                                    <Button>Favorites</Button>
+                                    <Button onClick={goToFavorites}>Favorites</Button>
                                 </MenuItem>
                                 <MenuItem onClick={handleCloseUserMenu}>
                                     <Button onClick={logout}>Logout</Button>
