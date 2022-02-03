@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
 import {useParams, useHistory} from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
 import '../style/moviedetails.css'
 
@@ -9,13 +9,12 @@ const MovieDetails = () => {
     const [movie, setMovie] = useState({})
     const [movieV, setMovieV] = useState([])
     const [myList, setMyList] = useState(true)
-    const [myNotList, setMyNotList] = useState(false)
-    const [favoriteMovieId, setFavoriteMovieId] = useState([])
+    const [favoriteMovieId, setFavoriteMovieId] = useState(null)
     const [loggedinuser, setLoggedInUser] = useState({})
     const [refresh, setRefresh] = useState(true)
     const {id} = useParams()
     const history = useHistory()
-    
+
     useEffect(() => {
         axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
             .then(res => {
@@ -34,7 +33,6 @@ const MovieDetails = () => {
             console.log("errorrrrrr", err)
         })
     },[refresh])
-    const [object, setObject] = [{movie_id :id, moviePoster_path: movie.poster_path}]
     
     useEffect(() => {
         axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US`)
@@ -105,10 +103,6 @@ const MovieDetails = () => {
             addToFavorites()
         }
     }
-    const hasFavorite = () => {
-        console.log(loggedinuser.favorites.includes(object))
-        return (loggedinuser.favorites.includes(object))
-    }
     
     return (
         <div className='row'>
@@ -125,23 +119,11 @@ const MovieDetails = () => {
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
 
-                {/* <button className='icon' onClick={addToFavorites}><i  class="material-icons">star_border</i></button>
-                <button onClick={deleteFromFavorites}>Delete from My List</button> */}
                 <label>Add to My List</label>
                 {
-<<<<<<< HEAD
-                favoriteMovieId? <input type="checkbox" checked={true} onClick = {check} />
-                :<input type="checkbox" checked={hasFavorite} onClick = {check} />
-=======
-                favoriteMovieId===id? <input type="checkbox" checked={myList} onClick = {check} />
-<<<<<<< HEAD
+                favoriteMovieId === id? <input type="checkbox" checked={true} onClick = {check} />
                 :<input type="checkbox" checked={false} onClick = {check} />
-=======
-                :<input type="checkbox" checked={myNotList} onClick = {check} />
->>>>>>> origin/main
->>>>>>> b19d7a94ba9b11f881203610bea1b5188f6d4bbb
                 }
-
         </div>
     )
 }
