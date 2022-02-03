@@ -139,8 +139,8 @@ const MovieDetails = () => {
                 :<input type="checkbox" checked={myList2} onClick = {check2} />
                 } */}
                 {
-                favoriteMovieId === id ? <Checkbox color="error" checked={myList} onClick = {check} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />
-                :<Checkbox  color="error" checked={myList2} onClick = {check2} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />    
+                favoriteMovieId === id ? <Checkbox color="error" checked={myList} onClick = {check} icon={<FavoriteBorder color="error"/>} checkedIcon={<Favorite />} />
+                :<Checkbox  color="error" checked={myList2} onClick = {check2} icon={<FavoriteBorder color="error"/>} checkedIcon={<Favorite />} />    
                 }
                 
             

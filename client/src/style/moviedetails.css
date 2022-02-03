@@ -1,31 +1,31 @@
 /* Create two unequal columns that floats next to each other */
 .column {
-    float: left;
-    padding: 1px;
-    border-color: rgb(229, 8, 1);
-    border-radius: 2px;
-    margin: 35px;
-
-  }
+  float: left;
+  padding: 1px;
+  border-color: rgb(229, 8, 1);
+  border-radius: 2px;
+  margin: 35px;
+}
   
 
   
   /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-  .title {
-      text-align: center;
-      color: rgb(229, 8, 1);
-      font-size: 35px;
-      font-family:cursive;
-  }
+.title {
+  text-align: center;
+  color: rgb(229, 8, 1);
+  font-size: 35px;
+  font-family:cursive;
+}
 
 
-  .icon {
-    background-color:  rgb(229, 8, 1);
-  }
-  
+.icon {
+  background-color:  rgb(229, 8, 1);
+}
+
+
