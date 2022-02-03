@@ -1,5 +1,5 @@
-import React, { useState} from 'react';
-import {Link} from "react-router-dom";
+import React, { useState, useEffect} from 'react';
+import {Link, useHistory} from "react-router-dom";
 import NavBar from '../components/NavBar';
 import styles from '../style/style.module.css'
 import axios from 'axios';
@@ -8,7 +8,21 @@ const Search = () => {
 
     const [movies, setMovies] = useState([])
     const [searchResult, setSearchResult] = useState("")
+    const history = useHistory()
+    const [loggedinuser, setLoggedInUser] = useState({}) 
 
+    useEffect(() => {
+        // checking to seee if user is logged in, if not redirect to Index.jsx
+        axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+            .then(res => {
+                console.log("logged in user info", res)
+                setLoggedInUser(res.data)
+            })
+            .catch(err => {
+                history.push('/')
+                console.log("errorrrrrr", err)
+            })
+    }, [])
 
     const changeHandler=(e) => {
         e.preventDefault();
@@ -26,8 +40,8 @@ const Search = () => {
     return ( 
             
     <body>
-        <NavBar  />
-        <div >
+        <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
+        <div>
             <input type="text" placeholder="Search Movies" value={searchResult} onChange={(e)=>changeHandler(e)} />
         </div>  
 
