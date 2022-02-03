@@ -11,7 +11,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import BootFlixLogo from './BootFlixLogo';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios'
 
@@ -19,7 +18,7 @@ import bootflix from '../pngs/bootflix.png';
 import '../style/logo.css'
 
 
-const pages = ['Popular', 'Action', 'Kids'];
+const pages = ['Popular', 'Action', 'Horror'];
 
 
 const NavBar = (props) => {
@@ -107,15 +106,16 @@ const NavBar = (props) => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: { xs: 'block', md: 'none' }, color: 'error'
                             }}
                         >
                             
-                                {/* <MenuItem onClick={handleCloseNavMenu}>
-                                    <Button onClick={() => history.push('/home')}> Home</Button>
-                                    <Button onClick={() => history.push('/catagory/action')}> Action</Button>
-                                    <Button onClick={() => history.push('/catagory/horror')}> Horror</Button>
-                                </MenuItem> */}
+                                <MenuItem onClick={handleCloseNavMenu} >
+                                    <Button color="error" onClick={() => history.push('/home')}> Home</Button>
+                                    <Button color="error" onClick={() => history.push('/catagory/action')}> Action</Button>
+                                    <Button color="error" onClick={() => history.push('/catagory/horror')}> Horror</Button>
+                                    <Button color="error" onClick={() => history.push('/search')}> Search</Button>
+                                </MenuItem>
                             
                         </Menu>
                     </Box>
@@ -125,7 +125,7 @@ const NavBar = (props) => {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                     >
-                        <BootFlixLogo />
+                        <button className='clear' onClick={home}><img className='logo' src={bootflix}></img></button>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
@@ -137,6 +137,8 @@ const NavBar = (props) => {
                                 {page}
                             </Button>
                         ))}
+                        <Button onClick={handleCloseNavMenu, ()=> history.push(`/search`)}
+                                sx={{ my: 2, color: 'white', display: 'block' }}> Search</Button>
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
@@ -163,13 +165,13 @@ const NavBar = (props) => {
                         >
                             
                                 <MenuItem onClick={handleCloseUserMenu}>
-                                    <Button onClick={edituser}>Edit Profile</Button>
+                                    <Button color="error" onClick={edituser}>Edit Profile</Button>
                                 </MenuItem>
                                 <MenuItem onClick={handleCloseUserMenu}>
-                                    <Button onClick={goToFavorites}>Favorites</Button>
+                                    <Button color="error" onClick={goToFavorites}>Favorites</Button>
                                 </MenuItem>
                                 <MenuItem onClick={handleCloseUserMenu}>
-                                    <Button onClick={logout}>Logout</Button>
+                                    <Button color="error" onClick={logout}>Logout</Button>
                                 </MenuItem>
                         </Menu>
                     </Box>

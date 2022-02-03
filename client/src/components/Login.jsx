@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import '../style/loginreg.css'
-import BootFlixLogo from './BootFlixLogo';
+import bootflix from '../pngs/bootflix.png';
+
 
 
 const Login = () => {
@@ -36,15 +37,15 @@ const Login = () => {
         e.preventDefault();
         let path="/signup"; 
         history.push(path);
-      }
+    }
 
 
 
 
     return (
 <div className='container'>
-<BootFlixLogo />
 
+<button className='clear' onClick={() => history.push('/home')}><img className='logo' src={bootflix}></img></button>
 
             <form onSubmit = {login} class="box">
                 <h1 className='signin'>Sign In</h1>

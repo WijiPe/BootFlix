@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import '../style/loginreg.css'
-import BootFlixLogo from './BootFlixLogo';
+import bootflix from '../pngs/bootflix.png';
 
 
 
@@ -50,7 +50,7 @@ const Register = () => {
 
                     <div className="container" >
                         <form onSubmit= {register} className="box opacity">
-                        <BootFlixLogo />
+                        <button className='clear' onClick={() => history.push('/home')}><img className='logo' src={bootflix}></img></button>
                             <div className="label">
                                 <label>User Name</label>
                                 <input onChange = {regChangeHandler} type="text" name= 'username' placeholder="Username" />
