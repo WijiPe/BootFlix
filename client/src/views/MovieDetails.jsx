@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { set } from 'mongoose';
 import React, { useState, useEffect } from 'react';
 import {useParams, useHistory} from "react-router-dom";
 import NavBar from '../components/NavBar';
@@ -9,7 +8,8 @@ const MovieDetails = () => {
 
     const [movie, setMovie] = useState({})
     const [movieV, setMovieV] = useState([])
-    const [myList, setMyList] = useState(false)
+    const [myList, setMyList] = useState(true)
+    const [myNotList, setMyNotList] = useState(false)
     const [favoriteMovieId, setFavoriteMovieId] = useState([])
     const [loggedinuser, setLoggedInUser] = useState({})
     const [refresh, setRefresh] = useState(true)
@@ -24,7 +24,7 @@ const MovieDetails = () => {
                 let MovieId = res.data.favorites
                 for(let i=0; i<MovieId.length; i++){
                     if(MovieId[i].movie_id===id){
-                        setFavoriteMovieId(MovieId.movie_id)
+                        setFavoriteMovieId(MovieId[i].movie_id)
                     }
                 }
             })
@@ -87,6 +87,7 @@ const MovieDetails = () => {
         .then(res => {
             setRefresh(!refresh)
             console.log(res.data)
+            setMyList(!myList)
         })
         .catch(err => {
             console.log("errorrrrrr", err)
@@ -122,8 +123,8 @@ const MovieDetails = () => {
                 <button onClick={deleteFromFavorites}>Delete from My List</button> */}
                 <label>Add to My List</label>
                 {
-                favoriteMovieId? <input type="checkbox" checked={true} onClick = {check} />
-                :<input type="checkbox" checked={myList} onClick = {check} />
+                favoriteMovieId===id? <input type="checkbox" checked={myList} onClick = {check} />
+                :<input type="checkbox" checked={myNotList} onClick = {check} />
                 }
 
         </div>
