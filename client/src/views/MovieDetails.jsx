@@ -87,7 +87,6 @@ const MovieDetails = () => {
         .then(res => {
             setRefresh(!refresh)
             console.log(res.data)
-            setMyList(!myList)
         })
         .catch(err => {
             console.log("errorrrrrr", err)
@@ -125,7 +124,7 @@ const MovieDetails = () => {
 
                 <label>Add to My List</label>
                 {
-                favoriteMovieId===id? <input type="checkbox" checked={myList} onClick = {check} />
+                favoriteMovieId === id? <input type="checkbox" checked={myList} onClick = {check} />
                 :<input type="checkbox" checked={false} onClick = {check} />
 
                 // favoriteMovieId === id? <input type="checkbox" checked={true} onClick = {check} />
