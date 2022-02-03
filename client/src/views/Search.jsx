@@ -3,6 +3,10 @@ import {Link, useHistory} from "react-router-dom";
 import NavBar from '../components/NavBar';
 import styles from '../style/style.module.css'
 import axios from 'axios';
+import Paper from '@mui/material/Paper';
+import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
+import SearchIcon from '@mui/icons-material/Search'; 
 
 const Search = () => {
 
@@ -41,9 +45,24 @@ const Search = () => {
             
     <body>
         <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
-        <div>
+        {/* <div>
             <input type="text" placeholder="Search Movies" value={searchResult} onChange={(e)=>changeHandler(e)} />
-        </div>  
+        </div>   */}
+    <Paper
+        component="form"
+        sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+    >
+        <InputBase
+        sx={{ ml: 1, flex: 1 }}
+        placeholder="Search Google Maps"
+        inputProps={{ 'aria-label': 'Search Movies' }}
+        value={searchResult}
+        onChange={(e)=>changeHandler(e)}
+        />
+        <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+            <SearchIcon />
+        </IconButton>
+    </Paper>
 
     <div class="wrapper">
         <section id="section1">
