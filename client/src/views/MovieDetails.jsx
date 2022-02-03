@@ -143,7 +143,7 @@ const MovieDetails = () => {
                 :<Checkbox  color="error" checked={myList2} onClick = {check2} icon={<FavoriteBorder />} checkedIcon={<Favorite />} />    
                 }
                 
-                
+            
                 
 
 
