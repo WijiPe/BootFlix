@@ -45,15 +45,15 @@ const Login = () => {
     return (
 <div className='container'>
 
-<button className='clear' onClick={() => history.push('/home')}><img className='logo' src={bootflix}></img></button>
 
             <form onSubmit = {login} class="box">
+                <button className='clear' onClick={() => history.push('/home')}><img className='logo' src={bootflix}></img></button>
                 <h1 className='signin'>Sign In</h1>
-                <input onChange = {loginChangeHandler} type="text" name="email" placeholder="Username" /> 
+                <input onChange = {loginChangeHandler} type="text" name="email" placeholder="Email" /> 
                 <input onChange = {loginChangeHandler} type="password" name="password" placeholder="Password"/>    
                 <input onChange = {loginChangeHandler} type="submit" name="" value="Login" href="#"/> 
                 <input onChange = {loginChangeHandler} onClick={register} type="submit" name="register" value="Register" href="#"/>
-                <a className='forgot' href="#">Forgot password?</a>  
+                <a className='forgot' href="#">Forgot password?(should have saved it)</a>  
             </form>  
 
 

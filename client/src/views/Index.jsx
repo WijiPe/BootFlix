@@ -32,7 +32,7 @@ export default function Index() {
         },
     }}
     >
-    <button className='clear' onClick={() => history.push('/home')}><img className='logo' src={bootflix}></img></button>
+    <button className='clear' onClick={() => history.push('/home')}><img className='' src={bootflix}></img></button>
     
     <ButtonGroup size="large" color = "error" aria-label="medium error button group">
         {buttons}

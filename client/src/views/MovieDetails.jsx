@@ -9,6 +9,7 @@ const MovieDetails = () => {
     const [movie, setMovie] = useState({})
     const [movieV, setMovieV] = useState([])
     const [myList, setMyList] = useState(true)
+    const [myList2, setMyList2] = useState(false)
     const [favoriteMovieId, setFavoriteMovieId] = useState(null)
     const [loggedinuser, setLoggedInUser] = useState({})
     const [refresh, setRefresh] = useState(true)
@@ -102,10 +103,16 @@ const MovieDetails = () => {
             addToFavorites()
         }
     }
-    // const hasFavorite = () => {
-    //     console.log(loggedinuser.favorites.includes(object))
-    //     return (loggedinuser.favorites.includes(object))
-    // }
+
+    const check2 =()=>{
+        setMyList2(!myList)
+        if(myList === false){
+            deleteFromFavorites()
+            
+        }else{
+            addToFavorites()
+        }
+    }
     
     return (
         <div className='row'>
@@ -125,10 +132,8 @@ const MovieDetails = () => {
                 <label>Add to My List</label>
                 {
                 favoriteMovieId === id? <input type="checkbox" checked={myList} onClick = {check} />
-                :<input type="checkbox" checked={false} onClick = {check} />
+                :<input type="checkbox" checked={myList2} onClick = {check2} />
 
-                // favoriteMovieId === id? <input type="checkbox" checked={true} onClick = {check} />
-                // :<input type="checkbox" checked={false} onClick = {check} />
 }
         </div>
     )

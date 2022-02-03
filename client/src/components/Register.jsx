@@ -51,6 +51,7 @@ const Register = () => {
                     <div className="container" >
                         <form onSubmit= {register} className="box opacity">
                         <button className='clear' onClick={() => history.push('/home')}><img className='logo' src={bootflix}></img></button>
+                        <h1 className='signin'>Register</h1>
                             <div className="label">
                                 <label>User Name</label>
                                 <input onChange = {regChangeHandler} type="text" name= 'username' placeholder="Username" />

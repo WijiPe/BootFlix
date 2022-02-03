@@ -6,6 +6,7 @@ import Index from './views/Index';
 import LoginPage from './views/LoginPage';
 import CatagoryShow from './views/CatagoryShow';
 import MovieDetails from './views/MovieDetails';
+import Search from './views/Search';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 const App = () => {
@@ -30,6 +31,9 @@ const App = () => {
             </Route>
             <Route exact path="/movie/details/:id">
               <MovieDetails />
+            </Route>
+            <Route exact path="/search">
+              <Search />
             </Route>
             <Route exact path="/">
               <Index />
