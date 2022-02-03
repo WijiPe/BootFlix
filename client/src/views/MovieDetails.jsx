@@ -21,8 +21,12 @@ const MovieDetails = () => {
             .then(res => {
                 console.log("logged in user info", res)
                 setLoggedInUser(res.data)
-                setFavoriteMovieId(res.data.favorites)
-                console.log(res.data.favorites)
+                let MovieId = res.data.favorites
+                for(let i=0; i<MovieId.length; i++){
+                    if(MovieId[i].movie_id===id){
+                        setFavoriteMovieId(MovieId.movie_id)
+                    }
+                }
             })
             .catch(err => {
                 history.push('/')
@@ -114,16 +118,13 @@ const MovieDetails = () => {
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
 
-                <button className='icon' onClick={addToFavorites}><i  class="material-icons">star_border</i></button>
-                <button onClick={deleteFromFavorites}>Delete from My List</button>
+                {/* <button className='icon' onClick={addToFavorites}><i  class="material-icons">star_border</i></button>
+                <button onClick={deleteFromFavorites}>Delete from My List</button> */}
                 <label>Add to My List</label>
-                {/* {
-                favoriteMovieId&&
-                favoriteMovieId.map((movie, i) => (
-                    movie.movie_id===id? <input type="checkbox" checked={myList} onClick = {check} />
+                {
+                favoriteMovieId? <input type="checkbox" checked={true} onClick = {check} />
                 :<input type="checkbox" checked={myList} onClick = {check} />
-                ))  
-                } */}
+                }
 
         </div>
     )
