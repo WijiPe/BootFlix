@@ -129,10 +129,10 @@ const MovieDetails = () => {
                 <h3 className='coulmn right'>Vote Average:</h3>
                 <p className='coulmn right'>{movie.vote_average}/10</p>
 
-                <label>Add to My List</label>
+                <label for="heart">Add to My List</label>
                 {
-                favoriteMovieId === id? <input type="checkbox" checked={myList} onClick = {check} />
-                :<input type="checkbox" checked={myList2} onClick = {check2} />
+                favoriteMovieId === id? <input type="checkbox" checked={myList} onClick = {check} checked/>
+                :<input type="checkbox" checked={myList2} onClick = {check2} checked/>
 
 }
         </div>
