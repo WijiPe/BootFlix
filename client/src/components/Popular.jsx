@@ -10,7 +10,7 @@ const Popular = () => {
 
     useEffect(() => {
 
-        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=1")
+        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=2")
             .then(res => {
                 const tempArray = []
                 console.log(res.data.results)

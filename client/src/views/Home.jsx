@@ -4,7 +4,7 @@ import styles from '../style/style.module.css'
 import {Link, useHistory} from "react-router-dom";
 import Popular from '../components/Popular';
 import Action from '../components/Action';
-import Horror from '../components/Horror';
+import HorrorPage from '../components/Horror';
 import NavBar from '../components/NavBar';
 import Comedy from '../components/Comedy';
 import Favorite from '../components/Favorite';
@@ -48,7 +48,7 @@ const Home = () => {
             <h3><Link to={`/catagory/action`} className={styles.catagoryName}> <img className='logo1' src={actionlogo}></img></Link></h3>
             <Action />
             <h3><Link to={`/catagory/horror`} className={styles.catagoryName}> <img className='logo1' src={horrorlogo}></img> </Link></h3>
-            <Horror  />
+            <HorrorPage  />
             <h3><Link to={`/catagory/comedy`} className={styles.catagoryName}> <img className='logo1' src={comedylogo}></img> </Link></h3>
             <Comedy  />
 

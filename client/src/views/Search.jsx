@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react';
 import {Link, useHistory} from "react-router-dom";
 import NavBar from '../components/NavBar';
 import styles from '../style/style.module.css'
+import "../style/Search.css"
+import '../style/scroller.css'
 import axios from 'axios';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
@@ -43,18 +45,21 @@ const Search = () => {
 
     return ( 
             
-    <body>
+    <body >
         <NavBar  id={loggedinuser._id} username={loggedinuser.username}/>
         {/* <div>
             <input type="text" placeholder="Search Movies" value={searchResult} onChange={(e)=>changeHandler(e)} />
         </div>   */}
+    <div className="bodybody">
+
     <Paper
+        className='search'
         component="form"
         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
-    >
+        >
         <InputBase
         sx={{ ml: 1, flex: 1 }}
-        placeholder="Search Google Maps"
+        placeholder="Search BootFlix for Movies"
         inputProps={{ 'aria-label': 'Search Movies' }}
         value={searchResult}
         onChange={(e)=>changeHandler(e)}
@@ -64,7 +69,7 @@ const Search = () => {
         </IconButton>
     </Paper>
 
-    <div class="wrapper">
+    <div class="wrapper margin-left">
         <section id="section1">
             <a href="#section3" class="arrow__btn">‹</a>
             <div className={styles.catagoryGroup}>
@@ -72,7 +77,7 @@ const Search = () => {
                     movies &&
                     movies.map((movie, i) => (i < 7) && (
                         <div key={i}>
-                            <Link to={`/movie/details/${movie.id}`}><img className='image zoom' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="Movie Poster" ></img></Link>
+                            <Link to={`/movie/details/${movie.id}`}><img className='image zoom' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="" ></img></Link>
                         </div>
                     )
                     )}
@@ -86,7 +91,7 @@ const Search = () => {
                     movies &&
                     movies.map((movie, i) => (i > 6 && i < 14) && (
                         <div key={i}>
-                            <Link to={`/movie/details/${movie.id}`}><img className='image zoom' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="Movie Poster" ></img></Link>
+                            <Link to={`/movie/details/${movie.id}`}><img className='image zoom' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="" ></img></Link>
                         </div>
                     )
                     )}
@@ -100,7 +105,7 @@ const Search = () => {
                     movies &&
                     movies.map((movie, i) => (i > 13) && (
                         <div key={i}>
-                            <Link to={`/movie/details/${movie.id}`}><img className='image zoom' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="Movie Poster" ></img></Link>
+                            <Link to={`/movie/details/${movie.id}`}><img className='image zoom' src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="" ></img></Link>
                         </div>
                     )
                     )}
@@ -108,7 +113,7 @@ const Search = () => {
             <a href="#section1" class="arrow__btn">›</a>
         </section>
     </div>
-
+</div>
     </body>
     )
 }
