@@ -59,7 +59,7 @@ const Search = () => {
         >
         <InputBase
         sx={{ ml: 1, flex: 1 }}
-        placeholder="Search BootFlix for Movies"
+        placeholder="Search Movies"
         inputProps={{ 'aria-label': 'Search Movies' }}
         value={searchResult}
         onChange={(e)=>changeHandler(e)}
