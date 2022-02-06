@@ -1,25 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import ReactDOM from "react-router-dom";
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import '../style/scroller.css'
+import ArrowLeft from '@mui/icons-material/ArrowLeft';
+import ArrowRight from "@mui/icons-material/ArrowRight";
+import ButtonBase from "@material-ui/core/ButtonBase";
+import Link from "@material-ui/core/Link";
 
 
-const TestPopular = () => {
 
-    const [popular, setPopular] = useState([])
-
-    useEffect(() => {
-
-        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=1")
-            .then(res => {
-                const tempArray = []
-                console.log(res.data.results)
-                res.data.results.map((movie, i) => tempArray.push(movie))
-                setPopular(tempArray)
-            })
-            .catch(err => {
-                console.log("errorrrrrr", err)
-            })
-    }, [])
+export default class Posters extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            posters: [...props.popularPosters]
+        };
 
     }
-    export default TestPopular
+    renderArrows = () => {
+        return (
+            <div className="slider-arrow">
+                <ButtonBase
+                    className="arrow-btn prev"
+                    onClick={() => this.slider.slickPrev()}
+                >
+                    <ArrowLeft />
+                </ButtonBase>
+                <ButtonBase
+                    className="arrow-btn next"
+                    onClick={() => this.slider.slickNext()}
+                >
+                    <ArrowRight />
+                </ButtonBase>
+            </div>
+        );
+    };
+    render() {
+        const settings = {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 6,
+            slidesToScroll: 6
+        };
+        return (
+        
+            <div>
+                {this.renderArrows()}
+                <Slider {...settings}>
+                    {this.state.posters.map(function (poster, i) {
+                        return (
+                            <div key={i}>
+                                <Link href={`/movie/details/${poster.id}`}><img className="image zoom" onClick={() => this.link(poster.id)} alt="no" src={"https://image.tmdb.org/t/p/w500/" + poster.poster_path} /></Link>
+                            </div>
+                        );
+                    })}
+                </Slider>
+            </div >
+        );
+    }
+}
