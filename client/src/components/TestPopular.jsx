@@ -58,7 +58,7 @@ export default class Posters extends Component {
                         );
                     })}
                 </Slider>
-                <h1>Hi Matt</h1>
+                <h1>Hi Matttttt</h1>
             </div >
         );
     }
