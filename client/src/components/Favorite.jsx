@@ -1,59 +1,50 @@
-import React from 'react';
-import styles from '../style/style.module.css'
-import { Link} from "react-router-dom";
+import React, { useRef } from 'react';
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import '../style/scroller.css'
+import ArrowLeft from '@mui/icons-material/ArrowLeft';
+import ArrowRight from "@mui/icons-material/ArrowRight";
+import { Link } from "react-router-dom";
 
-const Favorite = (props) => {
 
-    const { favorites } = props
+export default (props) => {
+    const {favorites} = props
+    const slider = useRef()
+    const next = () => {
+        slider.current.slickNext();
+    };
+    const previous = () => {
+        slider.current.slickPrev();
+    };
+    
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        leftArrow: <ArrowLeft onClick={previous}/>,
+        rightArrow: <ArrowRight onClick={next}/>
+    };
 
     return (
-        <body>
-
-            <div class="wrapper maintop favorite">
-                <section className='favorite' id="section13">
-                    <a href="#section15" class="arrow__btn">‹</a>
-                    <div className={styles.catagoryGroup}>
-                        {favorites &&
-                            favorites.map((movie, i) => (i < 7) && (
-                                <div key={i} >
-                                    <Link to={`/movie/details/${movie.movie_id}`}><img className='image zoom top' src={"https://image.tmdb.org/t/p/w500/" + movie.moviePoster_path} alt="Movie Poster" ></img></Link>
-                                </div>
-                            )
-                            )}
-                    </div>
-                    <a href="#section14" class="arrow__btn">›</a>
-                </section>
-                <section id="section14">
-                    <a href="#section13" class="arrow__btn">‹</a>
-                    <div className={styles.catagoryGroup}>
-                        {favorites &&
-                            favorites.map((movie, i) => (i > 6 && i < 14) && (
-                                <div key={i}>
-                                    <Link to={`/movie/details/${movie.movie_id}`}><img className='image zoom top' src={"https://image.tmdb.org/t/p/w500/" + movie.moviePoster_path} alt="Movie Poster" ></img></Link>
-                                </div>
-                            )
-                            )}
-                    </div>
-                    <a href="#section15" class="arrow__btn">›</a>
-                </section>
-                <section id="section15">
-                    <a href="#section14" class="arrow__btn">‹</a>
-                    <div className={styles.catagoryGroup}>
-                        {favorites &&
-                            favorites.map((movie, i) => (i > 13) && (
-                                <div key={i}>
-                                    <Link to={`/movie/details/${movie.movie_id}`}><img className='image zoom top' src={"https://image.tmdb.org/t/p/w500/" + movie.moviePoster_path} alt="Movie Poster" ></img></Link>
-                                </div>
-                            )
-                            )}
-                    </div>
-                    <a href="#section13" class="arrow__btn">›</a>
-                </section>
-            </div>
-
-        </body>
-    )
+        <div className='size'>
+        
+                {favorites&& 
+            <Slider ref={(c) => (slider.current = c)} {...settings}>
+                {favorites.map(function (movie, i) {
+                    console.log(movie.movie_id)
+                    return (
+                        <div key={i}>
+                            <Link to={`/movie/details/${movie.movie_id}`}>
+                                <img className="image zoom" alt="no" src={"https://image.tmdb.org/t/p/w500/" + movie.moviePoster_path} />
+                            </Link>
+                        </div>
+                    );
+                })}
+            </Slider>
 }
-
-export default Favorite
+        </div >
+    );
+}

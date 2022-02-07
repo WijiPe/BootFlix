@@ -1,81 +1,104 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import styles from '../style/style.module.css'
-import {Link} from "react-router-dom";
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import '../style/scroller.css'
+import ArrowLeft from '@mui/icons-material/ArrowLeft';
+import ArrowRight from "@mui/icons-material/ArrowRight";
+import { Link } from "react-router-dom";
 
-const Horror = () => {
-
-    const [horror, setHorror] = useState([])
+export default () => {
+    const [horrorMovies, setHorrorMovies] = useState([])
 
     useEffect(() => {
+        const tempHorrorArray = []
         axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=30")
             .then(res => {
-                const tempArray = []
                 res.data.results.map((movie, i) => {
                     if(movie.genre_ids.includes(27)){
-                        tempArray.push(movie)
+                        tempHorrorArray.push(movie)
                         }
                     }
                 )
-                setHorror(tempArray)
             })
             .catch(err => {
                 console.log("errorrrrrr", err)
             })
+        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=6")
+            .then(res => {
+                res.data.results.map((movie, i) => {
+                    if(movie.genre_ids.includes(27)){
+                        tempHorrorArray.push(movie)
+                        }
+                    }
+                )
+            })
+            .catch(err => {
+                console.log("errorrrrrr", err)
+            })
+        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=27")
+            .then(res => {
+                res.data.results.map((movie, i) => {
+                    if(movie.genre_ids.includes(27)){
+                        tempHorrorArray.push(movie)
+                        }
+                    }
+                )
+            })
+            .catch(err => {
+                console.log("errorrrrrr", err)
+            })
+        axios.get("https://api.themoviedb.org/3/movie/popular?api_key=c49e028232019660cab8e28bf4d018d9&language=en-US&page=40")
+            .then(res => {
+                res.data.results.map((movie, i) => {
+                    if(movie.genre_ids.includes(27)){
+                        tempHorrorArray.push(movie)
+                        }
+                    }
+                )
+            })
+            .catch(err => {
+                console.log("errorrrrrr", err)
+            })
+        console.log(tempHorrorArray)
+        setHorrorMovies(tempHorrorArray)
     }, [])
 
+    const slider = useRef()
+    const next = () => {
+        slider.current.slickNext();
+    };
+    const previous = () => {
+        slider.current.slickPrev();
+    };
+    
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        leftArrow: <ArrowLeft onClick={previous}/>,
+        rightArrow: <ArrowRight onClick={next}/>
+    };
+
     return (
-        <body>
-         
-         <div class="wrapper maintop">
-             <section id="section10">
-                 <a href="#section12" class="arrow__btn">‹</a>
-                 <div className={styles.catagoryGroup}>
-                     {
-                     horror &&
-                     horror.map((movie, i) => (i < 7 )&&(
-                        <div key ={i} >
-                        <Link to={`/movie/details/${movie.id}`}><img className='image zoom' src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
-                    </div>
-                         )
-                     )}
-                 </div>
-                 <a href="#section11" class="arrow__btn">›</a>
-             </section>
-             <section id="section11">
-                 <a href="#section10" class="arrow__btn">‹</a>
-                 <div className={styles.catagoryGroup}>
-                     {
-                     horror &&
-                     horror.map((movie, i) => (i > 6 && i < 14 )&&(
-                             <div key ={i}>
-                                 <Link to={`/movie/details/${movie.id}`}><img  className='image zoom' src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
-                             </div>
-                         )
-                     )}
-                 </div>
-                 <a href="#section12" class="arrow__btn">›</a>
-             </section>
-             <section id="section12">
-                 <a href="#section11" class="arrow__btn">‹</a>
-                 <div className={styles.catagoryGroup}>
-                     {
-                     horror &&
-                     horror.map((movie, i) => ( i > 13 )&&(
-                             <div key ={i}>
-                                 <Link to={`/movie/details/${movie.id}`}><img  className='image zoom' src={"https://image.tmdb.org/t/p/w500/"+movie.poster_path} alt="Movie Poster" ></img></Link>
-                             </div>
-                         )
-                     )}
-                 </div>
-                 <a href="#section10" class="arrow__btn">›</a>
-             </section>
-         </div>
-        
-        </body>
-            )
+        <div className='size'>
+            <Slider ref={(c) => (slider.current = c)} {...settings}>
+                {horrorMovies.map(function (movie, i) {
+                    return (
+                        <div key={i}>
+                            <Link to={`/movie/details/${movie.id}`}>
+                                <img className="image zoom" alt="no" src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} />
+                            </Link>
+                        </div>
+                    );
+                })}
+            </Slider>
+        </div >
+    );
+
 }
 
-export default Horror
 
