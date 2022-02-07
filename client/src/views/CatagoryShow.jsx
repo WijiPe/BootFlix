@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavBar from '../components/NavBar';
-import ActionPage from '../components/ActionPage';
-import HorrorPage from '../components/HorrorPage';
-import ComedyPage from '../components/ComedyPage';
+import Action from '../components/Action';
+import Horror from '../components/Horror';
+import Comedy from '../components/Comedy';
 import {useParams, useHistory} from "react-router-dom";
 import Popular from '../components/Popular';
-import FavoritePage from '../components/FavoritePage';
-import TestPopular from '../components/Popular';
+import Favorite from '../components/Favorite';
+
 
 
 const CatagoryShow = () => {
@@ -50,10 +50,10 @@ const CatagoryShow = () => {
         <div>
             <NavBar id={loggedinuser._id} username={loggedinuser.username}/>
             {catagory === "popular" && <Popular popularMovies = {popularMovies}/>}
-            {catagory === "action" && <ActionPage />}
-            {catagory === "horror" && <HorrorPage />}
-            {catagory === "comedy" && <ComedyPage />}
-            {catagory === "myList" && <FavoritePage favorites = {favorites}/>}
+            {catagory === "action" && <Action />}
+            {catagory === "horror" && <Horror />}
+            {catagory === "comedy" && <Comedy />}
+            {catagory === "myList" && <Favorite favorites = {favorites}/>}
 
         </div>
     )

@@ -34,7 +34,7 @@ export default (props) => {
                 {favorites&& 
             <Slider ref={(c) => (slider.current = c)} {...settings}>
                 {favorites.map(function (movie, i) {
-                    console.log(movie.movie_id)
+                    console.log(favorites)
                     return (
                         <div key={i}>
                             <Link to={`/movie/details/${movie.movie_id}`}>
