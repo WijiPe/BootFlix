@@ -11,7 +11,7 @@ import Link from "@material-ui/core/Link";
 
 
 
-export default class Posters extends Component {
+class Posters extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -53,7 +53,7 @@ export default class Posters extends Component {
                     {this.state.posters.map(function (poster, i) {
                         return (
                             <div key={i}>
-                                <Link href={`/movie/details/${poster.id}`}><img className="image zoom" onClick={() => this.link(poster.id)} alt="no" src={"https://image.tmdb.org/t/p/w500/" + poster.poster_path} /></Link>
+                                <Link to={`/movie/details/${poster.id}`}><img className="image zoom" onClick={() => this.link(poster.id)} alt="no" src={"https://image.tmdb.org/t/p/w500/" + poster.poster_path} /></Link>
                             </div>
                         );
                     })}
@@ -62,3 +62,5 @@ export default class Posters extends Component {
         );
     }
 }
+const rootElement = document.getElementById("popular");
+ReactDOM.render(<Posters />, rootElement);
