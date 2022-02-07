@@ -59,7 +59,7 @@ const Home = () => {
             <h3><Link to={`/catagory/myList`} className={styles.catagoryName}><img className='logo1' src={favoriteslogo}></img></Link></h3>
             <Favorite favorites = {favorites}/>
             <h3><Link to={`/catagory/popular`} className={styles.catagoryName}> <img className='logo1' src={popularlogo}></img> </Link></h3>
-            <Popular id="popular" popularPosters = {popularPosters}/>
+            <TestPopular popularPosters = {popularPosters}/>
             <h3><Link to={`/catagory/action`} className={styles.catagoryName}> <img className='logo1' src={actionlogo}></img></Link></h3>
             <Action />
             <h3><Link to={`/catagory/horror`} className={styles.catagoryName}> <img className='logo1' src={horrorlogo}></img> </Link></h3>
