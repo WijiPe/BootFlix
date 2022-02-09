@@ -17,24 +17,27 @@ export default (props) => {
     const previous = () => {
         slider.current.slickPrev();
     };
-    
+    let newSlides
+    if (favorites.length < 6){
+        newSlides = favorites.length;
+    }else {
+        newSlides = 6;
+    }
     const settings = {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 6,
+        slidesToShow: newSlides,
         slidesToScroll: 6,
         leftArrow: <ArrowLeft onClick={previous}/>,
         rightArrow: <ArrowRight onClick={next}/>
     };
-
     return (
         <div className='size'>
         
                 {favorites&& 
             <Slider ref={(c) => (slider.current = c)} {...settings}>
                 {favorites.map(function (movie, i) {
-                    console.log(favorites)
                     return (
                         <div key={i}>
                             <Link to={`/movie/details/${movie.movie_id}`}>
@@ -44,7 +47,7 @@ export default (props) => {
                     );
                 })}
             </Slider>
-}
+                }
         </div >
     );
 }

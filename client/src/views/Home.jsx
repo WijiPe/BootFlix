@@ -50,7 +50,7 @@ const Home = () => {
                 console.log("errorrrrrr", err)
             })
     }, [])
-
+    console.log(favorites)
     return (
         <div className='body'>
             {/* need to pass these two thing to NavBar everytime */}
