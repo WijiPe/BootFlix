@@ -36,10 +36,11 @@ h1 {
 
    .image{
     width: 100px;
-    height: 100 px;
+    height: 150px;
     display: flex;
     gap: 10px;
     justify-content: space-around;
+    margin: -50px;
  
  
 }
@@ -96,5 +97,7 @@ margin-top: -100px;
 .size{
   max-width: 90%;
   margin: 0 auto;
+  margin-top: -30px;
+  margin-bottom: -30px;
 }
 
