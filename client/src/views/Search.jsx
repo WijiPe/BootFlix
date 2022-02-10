@@ -17,6 +17,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search'; 
 
 const Search = () => {
+    // const {search} = props
 
     const [movies, setMovies] = useState([])
     const [searchResult, setSearchResult] = useState("")
@@ -30,6 +31,14 @@ const Search = () => {
     const previous = () => {
         slider.current.slickPrev();
     };
+
+    // let newSlides
+    // if (search.length < 6){
+    //     newSlides = search.length;
+    // }else {
+    //     newSlides = 6;
+    // }
+
     const settings = {
         dots: false,
         infinite: true,
