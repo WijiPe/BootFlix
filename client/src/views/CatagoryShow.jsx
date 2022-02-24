@@ -7,6 +7,13 @@ import Comedy from '../components/Comedy';
 import {useParams, useHistory} from "react-router-dom";
 import Popular from '../components/Popular';
 import Favorite from '../components/Favorite';
+import Categorypages from '../components/Categorypages';
+import popularlogo from '../pngs/popular1.png';
+import comedylogo from '../pngs/comedy1.png';
+import horrorlogo from '../pngs/horror1.png';
+import favoriteslogo from '../pngs/favorites2.png';
+import actionlogo from '../pngs/action1.png';
+import '../style/logo.css'
 
 
 
@@ -49,11 +56,11 @@ const CatagoryShow = () => {
     return (
         <div>
             <NavBar id={loggedinuser._id} username={loggedinuser.username}/>
-            {catagory === "popular" && <Popular popularMovies = {popularMovies}/>}
-            {catagory === "action" && <Action />}
-            {catagory === "horror" && <Horror />}
-            {catagory === "comedy" && <Comedy />}
-            {catagory === "myList" && <Favorite favorites = {favorites}/>}
+            {catagory === "popular" &&  <div> < Categorypages title = {<img className='logo1' src={popularlogo}></img>} /><Popular popularMovies = {popularMovies}/></div>}
+            {catagory === "action" && <div> < Categorypages title = {<img className='logo1' src={actionlogo}></img>} />  <Action /> </div>}
+            {catagory === "horror" && <div> < Categorypages title = {<img className='logo1' src={horrorlogo}></img>} />  <Horror /> </div>}
+            {catagory === "comedy" &&   <div> < Categorypages title = {<img className='logo1' src={comedylogo}></img>} />  <Comedy /> </div>}
+            {catagory === "myList" &&   <div> < Categorypages title = {<img className='logo1' src={favoriteslogo}></img>} /> <Favorite favorites = {favorites}/></div>}
 
         </div>
     )
