@@ -26,7 +26,7 @@ const Home = () => {
 
     useEffect(() => {
         // checking to seee if user is logged in, if not redirect to Index.jsx
-        axios.get("/api/users/getloggedinuser", { withCredentials: true })
+        axios.get("/bootflix/api/users/getloggedinuser", { withCredentials: true })
             .then(res => {
                 console.log("logged in user info", res)
                 setLoggedInUser(res.data)

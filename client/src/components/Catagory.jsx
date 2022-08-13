@@ -8,8 +8,6 @@ const Catagory = (props) => {
 
     const {findCatagory} = props
 
-
-
     return (
         <div>
             {

@@ -12,7 +12,7 @@ import {BrowserRouter, Switch, Route} from "react-router-dom";
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename="/bootflix">
         <Switch>
             <Route exact path="/home">
               <Home/>
