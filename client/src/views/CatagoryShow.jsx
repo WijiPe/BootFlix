@@ -27,7 +27,7 @@ const CatagoryShow = () => {
 
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+        axios.get("/api/users/getloggedinuser", { withCredentials: true })
             .then(res => {
                 console.log("logged in user info", res)
                 setLoggedInUser(res.data)

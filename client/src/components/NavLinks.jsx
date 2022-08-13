@@ -14,7 +14,7 @@ const NavLinks = (props) => {
         if(e.target.value === ''){
             return console.log('nothing')}
         if (e.target.value === "logout"){
-            axios.post("http://localhost:8000/api/user/logout")
+            axios.post("/api/user/logout")
                 .then (res => {
                     console.log(res.json)
                     history.push('/')

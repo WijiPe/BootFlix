@@ -1,0 +1,35 @@
+version: '3.3'
+services: 
+  frontend:
+    container_name: BootFlixFrontend
+    build: 
+      context: client/
+      dockerfile: Dockerfile
+    working_dir: /app
+    ports:
+      - "3000:80"
+  backend:
+    container_name: BootFlixBackend
+    build: 
+      context: server/
+      dockerfile: Dockerfile
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    command: node server.js
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:5.0
+    command: mongod --port 27017
+    volumes:
+      - .mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+    healthcheck:
+      test: mongo --eval 'db.runCommand("ping").ok' localhost:27017/test --quiet
+      interval: 3s
+      timeout: 10s
+      retries: 10
+

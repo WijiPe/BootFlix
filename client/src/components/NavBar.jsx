@@ -41,7 +41,7 @@ const NavBar = (props) => {
         setAnchorElUser(null);
     };
     const logout = () =>{
-        axios.get("http://localhost:8000/api/user/logout", {withCredentials: true})
+        axios.get("/api/user/logout", {withCredentials: true})
                 .then (res => {
                     console.log(res)
                     history.push('/')

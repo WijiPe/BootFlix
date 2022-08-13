@@ -23,7 +23,7 @@ const Login = () => {
 
     const login = (e)=>{
         e.preventDefault();
-        axios.post("http://localhost:8000/api/login", loginInfo, {withCredentials:true} )
+        axios.post("/api/login", loginInfo, {withCredentials:true} )
             .then(res=>{
                 console.log("LOGGGIN IN RESPONSE", res)
                 if(res.data.msg == "success!"){

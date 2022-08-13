@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/bootflixusers_db',{
+mongoose.connect('mongodb://mongodb/bootflixusers_db',{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })

@@ -19,7 +19,7 @@ const Register = () => {
     })
     useEffect(() => {
         // checking to seee if user is logged in, if not redirect to Index.jsx
-        axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+        axios.get("/api/users/getloggedinuser", { withCredentials: true })
             .then(res => {
                 console.log("logged in user info", res)
                 setLoggedInUser(res.data)
@@ -49,7 +49,7 @@ const Register = () => {
 
     const register = (e)=>{
         e.preventDefault();
-        axios.put("http://localhost:8000/api/user/update/" + loggedinuser._id, registerInfo, {withCredentials: true})
+        axios.put("/api/user/update/" + loggedinuser._id, registerInfo, {withCredentials: true})
         .then(res=>{
             console.log("response from updating", res);
             if(res.data.errors){

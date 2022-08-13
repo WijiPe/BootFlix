@@ -21,7 +21,7 @@ const MovieDetails = () => {
     const history = useHistory()
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/users/getloggedinuser", { withCredentials: true })
+        axios.get("/api/users/getloggedinuser", { withCredentials: true })
             .then(res => {
                 console.log("logged in user info", res)
                 setLoggedInUser(res.data)
@@ -71,7 +71,7 @@ const MovieDetails = () => {
         if(found === false){
             newFavorites.push(object)
         }
-            axios.put("http://localhost:8000/api/user/update/" + loggedinuser._id, {favorites:newFavorites})
+            axios.put("/api/user/update/" + loggedinuser._id, {favorites:newFavorites})
                 .then(res => {
                     setRefresh(!refresh)
                     console.log(res.data)
@@ -88,7 +88,7 @@ const MovieDetails = () => {
                 newFavorites.splice(i,1)
             }
         }
-        axios.put("http://localhost:8000/api/user/update/" + loggedinuser._id, {favorites:newFavorites})
+        axios.put("/api/user/update/" + loggedinuser._id, {favorites:newFavorites})
         .then(res => {
             setRefresh(!refresh)
             console.log(res.data)

@@ -32,7 +32,7 @@ const Register = () => {
 
     const register = (e)=>{
         e.preventDefault();
-        axios.post("http://localhost:8000/api/register", registerInfo, {withCredentials:true})
+        axios.post("/api/register", registerInfo, {withCredentials:true})
             .then(res=>{
                 console.log("response from registering", res);
                 if(res.data.errors){
