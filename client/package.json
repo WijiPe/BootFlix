@@ -1,6 +1,5 @@
 {
   "name": "client",
-  "proxy": "http://localhost:80",
   "homepage": "/bootflix",
   "version": "0.1.0",
   "private": true,

@@ -38,8 +38,6 @@ const App = () => {
             <Route exact path="/">
               <Index />
             </Route>
-
-
         </Switch>
       </BrowserRouter>
     </div>
